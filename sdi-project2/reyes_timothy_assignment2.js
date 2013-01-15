@@ -6,8 +6,11 @@
 
 var boredOfJob = true,
 	timeToGoHome = 18, //military time
-	jobDuties = ["Online Support Chat", "Phone Support", "Email Support", "Forum Support"],
-	jobTotals = [30, 40, 20, 50],
+	yearsWorkedAtCompix = 10,
+	currentJobDuties = ["Online Support Chat", "Phone Support", "Email Support", "Forum Support"],
+	currentJobHours = [1, 3, 3, 1]
+	newJobDuties = ["Research & Development"],
+	newJobHours = 8,
 	workYesterday = true,
 	workToday = true,
 	workSaturday = false
@@ -29,7 +32,7 @@ output("He's starting to get bored of his job, and here is an example why.")
 	}; //else statment
 
 }; //storyIntro function
-storyIntro("Timothy Reyes", "10 years", boredOfJob);
+storyIntro("Timothy Reyes", yearsWorkedAtCompix, boredOfJob);
 
 
 //Boolean Function
@@ -87,13 +90,32 @@ output("I worked " + timeWellSpent + " hundred hours and I feel exhausted.")
 
 // String Function
 
+concatenation = function (current, neww) {
 
-/*
-for (var jobTotal = 0; jobTotal < jobTotals.length; jobTotal++) {
+	var outputStatement = "After graduating with my Mobile Development Degree, I will be going from working on " + current + " to working in " + neww + ".  Exciting times!"
+	
+	return outputStatement
+}; // concatenation function
 
-	var jobDuty = jobDuties[jobTotal],
-		jobPerTotal = jobTotals[jobTotal];
-console.log("Starting to swab the " + jobDuty + " for " + jobPerTotal + " minutes.");
-};
-*/
+var statement = concatenation(currentJobDuties, newJobDuties)
 
+output(statement);
+
+
+//Array Function
+
+var dailyDuties = function (currentJobDuties, currentJobHours) {
+
+	for (var currentHour = 0; currentHour < currentJobDuties.length; currentHour++) {
+		var currentJobDuty = currentJobDuties[currentHour],
+	    	currentJobHour = currentJobHours[currentHour]
+	    	output("Today I have worked with " + currentJobDuty + " for " + currentJobHour + " hours, time to move onto something else.");
+	
+	 };//for statement
+	return currentHour;
+}; //dailyDuties function
+var sentence = dailyDuties(currentJobDuties, currentJobHours)
+output("After my " + sentence + " job duties, I am finished with my daily tasks... Now, back to coding!");
+
+
+//End
