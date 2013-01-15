@@ -2,45 +2,44 @@
 // SDI 1301
 // Assignment: Project 2
 
+//Variables
 
-
-var boredOfJob = true,
+var wantsSomethingNew = true,
 	timeToGoHome = 18, //military time
 	yearsWorkedAtCompix = 10,
 	currentJobDuties = ["Online Support Chat", "Phone Support", "Email Support", "Forum Support"],
-	currentJobHours = [1, 3, 3, 1]
+	currentJobHours = [1, 3, 3, 1],
 	newJobDuties = ["Research & Development"],
 	newJobHours = 8,
 	workYesterday = true,
 	workToday = true,
 	workSaturday = false
-
+;
 var output = function(message) {console.log(message); };
+
 
 //Procedure
 
+var storyIntro = function(name, yearsWorked, wantsSomethingNew) {
 
-var storyIntro = function(name, yearsWorked, boredOfJob) {
+output(name + " has worked in Support at Compix for the past " + yearsWorked + " years, he is starting to look outside his bubble and embark on a new journey into Mobile Development.");
 
-output(name + " has worked at Compix for the past " + yearsWorked + ", he is starting to look outside his bubble and embark on a new journey into Mobile Development.");
-
-if (boredOfJob == true){
-output("He's starting to get bored of his job, and here is an example why.")
+if (wantsSomethingNew == true){
+output("He is very much looking forward for new opportunities in Compix as a developer, but until the time arrives, here is a typical day at Compix.");
 } //if statement 
 	else {
-		output("I currently love my job, and I don't want to embark on Mobile Development at this time.");	
+		output("I currently love Support at Compix; I don't want to embark on new opportunities at this time.");
 	}; //else statment
 
 }; //storyIntro function
-storyIntro("Timothy Reyes", yearsWorkedAtCompix, boredOfJob);
+storyIntro("Timothy Reyes", yearsWorkedAtCompix, wantsSomethingNew);
 
 
 //Boolean Function
 
+var jobActivities = function(workYesterday, workToday, workSat) {
 
-var jobActivities = function(workY, workT, workS) {
-
-	var didHeWork = ((workY && workT) || !workS)
+	var didHeWork = workSat || (workYesterday && workToday)
 	
 	return didHeWork;
 
@@ -49,9 +48,9 @@ var jobActivities = function(workY, workT, workS) {
 var lastStatement = function (didHeWork) {
 	
 	if (didHeWork === true) {
-	output("It is " + didHeWork + " that he work yesterday and today.");
+	output("It is " + didHeWork + " that he worked today and/or yesterday.");
 	}
-	else (output("It's Saturday, that means I don't work and I can code all day!"));
+	else (output("It's Saturday, that means he doesn't work and he can code all day!"));
 
 }; // lastStatement function
 
@@ -60,13 +59,13 @@ var didHeWorkValue = jobActivities(workYesterday, workToday, workSaturday)
 
 lastStatement(didHeWorkValue);
 
-output("Even though it is " + didHeWorkValue + ", I can't wait to get home and code!");
+output("Even though it is " + didHeWorkValue + ", he can't wait to code either way!");
 
 
 
 //Number Function
 
-output("I love my job, but I still find myself looking at the clock a bit too often!");
+output("Tim loves his job, but I still finds himself looking at the clock a bit too often!");
 
 checkingClock = function (timeToLeave){
 	
@@ -77,7 +76,7 @@ checkingClock = function (timeToLeave){
 	clock++;
 }; //while loop
 
-	output("Finally it's " + timeToLeave + " hundred hours, time to go home!");
+//	output("Finally it's " + timeToLeave + " hundred hours, time to go home!"); - Not Part of Flowchart so omitted
  
 return clock
 
