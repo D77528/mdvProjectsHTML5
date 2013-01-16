@@ -65,7 +65,7 @@ output("Even though it is " + didHeWorkValue + ", he can't wait to code either w
 
 //Number Function
 
-output("Tim loves his job, but I still finds himself looking at the clock a bit too often!");
+output("Tim loves his job, but he still finds himself looking at the clock a bit too often!");
 
 checkingClock = function (timeToLeave){
 	
@@ -76,7 +76,7 @@ checkingClock = function (timeToLeave){
 	clock++;
 }; //while loop
 
-//	output("Finally it's " + timeToLeave + " hundred hours, time to go home!"); - Not Part of Flowchart so omitted
+	output("Finally it's " + timeToLeave + " hundred hours, time to go home!");
  
 return clock
 
@@ -94,6 +94,7 @@ concatenation = function (current, neww) {
 	var outputStatement = "After graduating with my Mobile Development Degree, I will be going from working on " + current + " to working in " + neww + ".  Exciting times!"
 	
 	return outputStatement
+	
 }; // concatenation function
 
 var statement = concatenation(currentJobDuties, newJobDuties)
