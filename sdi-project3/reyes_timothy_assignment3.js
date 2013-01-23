@@ -31,7 +31,7 @@ console.log(statement);
 
 
 //beginning numbers: number argument, property number, while loop, return number, math
-checkingClock = function (timeToLeave){
+var mainClock = checkingClock = function (timeToLeave){
 	
 	var clock = 1;
 	
@@ -52,7 +52,7 @@ console.log("Finally it's " + checkingClock() + "AM, time to get the kids ready 
 console.log(parentTimothy.name + "'s children names are " + childOliver.name + " and " + childWillow.name + ".");
 
 
-var handleData = function(family) { // for loop
+var handleData = function(family) { // for loop , proedure method
 //	console.log(family);
 	for (var i = 0; i < family.children.length; i++){
 		var child = family.children[i];
@@ -65,7 +65,7 @@ handleData(family);
 
 
 
-// booliean
+// booliean : method function
 console.log("Let's get " + family.parents[0].name + "'s children ready for school this morning.");
 
 var OliverReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
@@ -89,6 +89,6 @@ var readyToGo = function (readyOliver, readyWillow){
 					console.log("Okay children, let's go to School!");
 					}
 					else (console.log("We can't leave until you finish!"))
-return readyToGo
+
 }
 var readyToGo = readyToGo(OliverReadyForSchool(childOliver.brushedTeeth,childOliver.gotChanged, childOliver.ateBreakfast) === true, WillowReadyForSchool(childWillow.brushedTeeth,childWillow.gotChanged, childWillow.ateBreakfast))
