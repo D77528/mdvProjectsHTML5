@@ -12,17 +12,21 @@ var statement = concatenation(currentJobDuties, newJobDuties)
 
 output(statement);
 */
-var parent0 = family.parents[0].name,
-	child0 = family.children[0].name,
-	child1 = family.children[1].name;
+var childOliver = family.children[0],
+	childWillow = family.children[1],
+	parentTimothy = family.parents[0]
+
+
+
 //String Function
+
 var beginningSentence = function (parent, child1, child2) {		
 	var sentence = parent + "'s having trouble sleeping.  He is constantly looking at his clock throughout the night waiting to begin a new day.  As soon as he gets up he'll need to get " + child1 + " and " + child2 + " ready for school."
 	return sentence
 	
 }// beginningSentence function
 
-var statement = beginningSentence(parent0, child0, child1)
+var statement = beginningSentence(parentTimothy.name, childOliver.name, childWillow.name)
 console.log(statement);
 
 
@@ -31,8 +35,8 @@ checkingClock = function (timeToLeave){
 	
 	var clock = 1;
 	
-	while(clock < family.parents[0].wakesUp) {
-	console.log("It's " + clock + "AM, not quite " + family.parents[0].wakesUp + "AM yet; I'll go back to sleep.");
+	while(clock < parentTimothy.wakesUp) {
+	console.log("It's " + clock + "AM, not quite " + parentTimothy.wakesUp + "AM yet; I'll go back to sleep.");
 	clock++;
 }; //while loop
  
@@ -45,9 +49,10 @@ console.log("Finally it's " + checkingClock() + "AM, time to get the kids ready 
 // end numbers section
 
 
-console.log(family.parents[0].name + "'s children names are " + family.children[0].name + " and " + family.children[1].name + ".");
+console.log(parentTimothy.name + "'s children names are " + childOliver.name + " and " + childWillow.name + ".");
 
-var handleData = function(family) {
+
+var handleData = function(family) { // for loop
 //	console.log(family);
 	for (var i = 0; i < family.children.length; i++){
 		var child = family.children[i];
@@ -58,10 +63,32 @@ var handleData = function(family) {
 };
 handleData(family);
 
+
+
+// booliean
 console.log("Let's get " + family.parents[0].name + "'s children ready for school this morning.");
 
-var readyChild0 = 			family.children[0].readyForSchool(family.children[0].brushedTeeth,family.children[0].gotChanged, family.children[0].ateBreakfast),	
-	readyChild1 = family.children[1].readyForSchool(family.children[1].brushedTeeth,family.children[1].gotChanged, family.children[1].ateBreakfast)
+var OliverReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
+				if (brushTeeth && getChanged && haveBreakfast === true) {
+					console.log("I am ready to go dad!");
+				}
+				else (console.log("Not ready yet..."))		
+};				
+console.log(OliverReadyForSchool(childOliver.brushedTeeth,childOliver.gotChanged, childOliver.ateBreakfast));
 
+var WillowReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
+				if (brushTeeth && getChanged && haveBreakfast === true) {
+					console.log("I am ready to go dad!");
+				}
+				else (console.log("Not ready yet..."))		
+};				
+console.log(WillowReadyForSchool(childWillow.brushedTeeth,childWillow.gotChanged, childWillow.ateBreakfast));
 
-console.log(readyChild0);
+var readyToGo = function (readyOliver, readyWillow){
+				if (readyOliver === true && readyWillow === true) {
+					console.log("Okay children, let's go to School!");
+					}
+					else (console.log("We can't leave until you finish!"))
+return readyToGo
+}
+var readyToGo = readyToGo(OliverReadyForSchool(childOliver.brushedTeeth,childOliver.gotChanged, childOliver.ateBreakfast) === true, WillowReadyForSchool(childWillow.brushedTeeth,childWillow.gotChanged, childWillow.ateBreakfast))

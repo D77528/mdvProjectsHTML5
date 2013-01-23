@@ -15,15 +15,10 @@ var family = {// value object
 				"Long-sleeve shirt and jeans",
 				"Thomas the Train shirt and shorts"
 			],
-			"brushedTeeth": true, //property Boolean
+			"brushedTeeth": false, //property Boolean
 			"gotChanged": true, //property Boolean
-			"ateBreakfast": true, //property Boolean
-			"readyForSchool" : readyForSchool = function (Teeth, Changed, Breakfast){
-				if (Teeth && Changed && Breakfast === true) {
-					console.log("We are ready to go dad!");
-				}
-				else (console.log("Not ready yet..."))
-			}// readyForSchool function
+			"ateBreakfast": true //property Boolean
+
 			}, // children 0
 			
 			{"name" : "Willow",
@@ -40,25 +35,13 @@ var family = {// value object
 			],
 			"brushedTeeth": true, //property Boolean
 			"gotChanged": true, //property Boolean
-			"ateBreakfast": true, //property Boolean
-			"readyForSchool" : readyForSchool = function (Teeth, Changed, Breakfast){
-				if (Teeth && Changed && Breakfast === true) {
-					console.log("We are ready to go dad!");
-				}
-					else (console.log("Not ready yet dad, give me another minute!"))
-			}// readyForSchool function
-			} //children 1
+			"ateBreakfast": true //property Boolean
+						} //children 1
 		],// children array
 		
 		"parents" : [
 			{"name" : "Timothy",
-			"wakesUp" : 7, // property:Number
-			"readyToGo" : readyToGo = function (readyChild0){
-				if (readyChild0 === true && readyChild1 === true) {
-					console.log("Okay children, let's go to School!");
-					}
-					else (console.log("We can't leave until you finish!"))
-				}//readytogo function
+			"wakesUp" : 7 // property:Number
 			}//Timothy
 		]// parents array
 }; //family object
