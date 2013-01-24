@@ -2,18 +2,6 @@
 // JSON's just use JavaScripts Objects and Arrays
 
 var morningRoutine = {
-		favoriteCereals : {
-			bad : [
-			"Fruity Pebbles", 
-			"Chocolate Cheerios", 
-			"Cinniman Toast Crunch"
-			],
-			good : [
-			"Cheerios", 
-			"Wheaties", 
-			"Oatmeal"
-			]
-		},
 		favoriteCloths : {
 			boy : [
 			"tee-shirt and jeans", 
@@ -28,12 +16,12 @@ var morningRoutine = {
 		},
 		childrenTasks : {
 			oliverTask : {
-				"brushedTeeth" : false,
+				"brushedTeeth" : true,
 				"gotChanged": true,
 				"ateBreakfast": true
 				},
 			willowTask : {
-				"brushedTeeth": false,
+				"brushedTeeth": true,
 				"gotChanged": true,
 				"ateBreakfast": true
 				}

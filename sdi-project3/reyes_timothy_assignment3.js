@@ -75,47 +75,48 @@ handleData(myFamily);
 
 //MUTATOR METHOD
 
-var eatAndChange = {
-		availableCereal : ["Cheerios", "Kellogs Frosted Flakes"],
-		oliverFavoriteCereal : morningRoutine.favoriteCereals.bad[2],
-		oliverFavoriteCloths : 1,
-		oliverPickCloths : function (oliverFavoriteCloths){
-			while(oliverFavoriteCloths < morningRoutine.favoriteCloths.boy.length){
-	console.log("It's ");
-	oliverFavoriteCloths++;
-		}//while loop
-		};//function
-eatAndChange.oliverPickCloths(oliverFavoriteCloths);
-		//willowPickCloths : function (){
-			
-		//}
-		//willowFavoriteCereal : morningRoutine.favoriteCereals.bad[0],
-		
-		//pickCereal : function (){
-			
-			
-			
-		//}
+var breakfastChoices = {
+	
+	cereal : 1,
+	eggos : 1,
+	oatmeal : 1,
+	choices : function(){
+		var totalBreakfast = this.cereal + this.eggos + this.oatmeal; 
+				return totalBreakfast;
+	},//function
+	foundMoreCereal : function(newCereal){
+		this.cereal = newCereal;
+	}
+	
+};//object
+console.log("Okay kids, we only have " + breakfastChoices.choices() + " choices for breakfast this morning.");
 
+breakfastChoices.foundMoreCereal(2);
 
-// boolean : method function
-/*console.log("Let's get " + family.parents[0].name + "'s children ready for school this morning.");
+console.log("Nevermind, I found Fruity Pebbles in the cupboard!  We have " + breakfastChoices.choices() + " choices now!");
 
-var OliverReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
+//END MUTATOR METHOD
+
+//JSON DATA, BOOLEAN, ENDING CODE
+
+console.log("Let's get " + myFamily.children[0] + " and " + myFamily.children[1] + " ready for school this morning.");
+
+var oliverReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
 				if (brushTeeth && getChanged && haveBreakfast === true) {
 					console.log("I am ready to go dad!");
 				}
 				else (console.log("Not ready yet..."))		
 };				
-console.log(OliverReadyForSchool(childOliver.brushedTeeth,childOliver.gotChanged, childOliver.ateBreakfast));
+oliverReadyForSchool(morningRoutine.childrenTasks.oliverTask.brushedTeeth,morningRoutine.childrenTasks.oliverTask.gotChanged, morningRoutine.childrenTasks.oliverTask.ateBreakfast);
 
-var WillowReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
+var willowReadyForSchool = function (brushTeeth, getChanged, haveBreakfast){
 				if (brushTeeth && getChanged && haveBreakfast === true) {
 					console.log("I am ready to go dad!");
 				}
 				else (console.log("Not ready yet..."))		
 };				
-console.log(WillowReadyForSchool(childWillow.brushedTeeth,childWillow.gotChanged, childWillow.ateBreakfast));
+willowReadyForSchool(morningRoutine.childrenTasks.willowTask.brushedTeeth,morningRoutine.childrenTasks.willowTask.gotChanged, morningRoutine.childrenTasks.willowTask.ateBreakfast);
+
 
 var readyToGo = function (readyOliver, readyWillow){
 				if (readyOliver === true && readyWillow === true) {
@@ -124,4 +125,4 @@ var readyToGo = function (readyOliver, readyWillow){
 					else (console.log("We can't leave until you finish!"))
 
 }
-var readyToGo = readyToGo(OliverReadyForSchool(childOliver.brushedTeeth,childOliver.gotChanged, childOliver.ateBreakfast) === true, WillowReadyForSchool(childWillow.brushedTeeth,childWillow.gotChanged, childWillow.ateBreakfast))*/
+readyToGo(oliverReadyForSchool(morningRoutine.childrenTasks.oliverTask.brushedTeeth,morningRoutine.childrenTasks.oliverTask.gotChanged, morningRoutine.childrenTasks.oliverTask.ateBreakfast), willowReadyForSchool(morningRoutine.childrenTasks.willowTask.brushedTeeth,morningRoutine.childrenTasks.willowTask.gotChanged, morningRoutine.childrenTasks.willowTask.ateBreakfast))
