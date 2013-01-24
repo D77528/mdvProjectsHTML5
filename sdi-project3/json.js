@@ -1,9 +1,10 @@
-// This is a JSON File
-// JSON's just use JavaScripts Objects and Arrays
+// Timothy Reyes
+// SDI 1301
+// Assignment: Project 3
 
-var morningRoutine = {
-		favoriteCloths : {
-			boy : [
+var morningRoutine = { //Object
+		favoriteCloths : { //within an Object
+			boy : [ //within an Array
 			"tee-shirt and jeans", 
 			"Thomas the Train shirt and shorts", 
 			"long-sleeve shirt and jeans"
