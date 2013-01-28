@@ -1,7 +1,7 @@
 // Timothy Reyes
 // SDI 1301
 // Assignment: Project 4
-/*
+
 
 //Does a string follow a 123-456-7890 pattern like a phone number?
 
@@ -122,21 +122,20 @@ var numberCompare = function (numArray, inputNum) {
 	for (var i = 0; i < numArray.length; i++){
 		var number = numArray[i]
 		
-		if (numArray[i] <= inputNum) {
-			numArray[i]++,
-			break; console.log(number))
-		//else (numCurrent.toString());
-		//console.log(numCurrent); //else turn numCurrent to a string, get first number outof string.		
+		if (numArray[i] >= inputNum) {
+			numArray[i]++
+			
+		
+		return number; //else turn numCurrent to a string, get first number outof string.		
 		}// if statement
 }//function
 
+}
 
+console.log(numberCompare([0, 2, 4, 6 ,8], 1))
 
-console.log(numberCompare([0, 2, 4, 6 ,8], 5))
+//Finished
 
-
-//ALMOST HAVE IT!
-/*
 //Given a string version of a number, such as “42”, return the value as an actual Number data type, such as 42.
 
 var conversion = function (string) {
@@ -194,19 +193,20 @@ var fixedNumber = numb.toFixed(2);
 console.log(enterAmount(456.09876))
 
 //FINISHED
-*/
+
 
 //Find the total value of just the numbers in an array, even if some of the items are not numbers.
 var addNumbers = function (array){
-var array = array
- var total = 0
- var v = undefined
-for (var eachNumber = 0; eachNumber < array.length; eachNumber++) {
-v = parseFloat(eachNumber[i]);
-          if (!isNaN(v)) total += v; 
-        } 
 
+var total = 0;
+for (var i = 0; i < array.length; i++){
+  total += array[i];
+  if (isNaN(array[i]) == true){
+	 total != array[i];
+	  
+}
+}
+return total}
+console.log(addNumbers([1, 2, 3, 4, 5, "rested", 200]));
 
-return v
-}//function
-console.log(addNumbers([1, 2, 3, 4, 5]))
+//Almost HAVE IT!
