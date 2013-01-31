@@ -125,6 +125,6 @@ var newLib = new myLibrary();
 console.log(newLib.enterPhoneNumber("949-585-0055"));
 console.log(newLib.enterEmailAddress("htiml5@fullsail.edu"));
 console.log(newLib.validWebsite("http://www.compix.tv"));
-console.log(newLib.numberCompare([0, 2, 4, 6 ,8], 1));
+console.log(newLib.numberCompare([0, 2, 4, 6 ,8], 5));
 console.log(newLib.conversion("123"));
 console.log(newLib.enterAmount(456.09876));
