@@ -8,25 +8,25 @@ var myLibrary = function() {
 
 
 var enterPhoneNumber = function(number){
-	var start = number.substring(0,3),
-		middleN = number.indexOf("-")+1,
-		endN = number.lastIndexOf("-")+1
+var start = number.substring(0,3),
+middleN = number.indexOf("-")+1,
+endN = number.lastIndexOf("-")+1
 
-	var phoneNumber = {
-			number : number,
-			start : start + "-",
-			middle : number.substring(middleN,7) +  "-",
-			end : number.substring(endN,12)
-		}
-	var givenNumber = phoneNumber.start + phoneNumber.middle + phoneNumber.end
+var phoneNumber = {
+number : number,
+start : start + "-",
+middle : number.substring(middleN,7) + "-",
+end : number.substring(endN,12)
 
-	if (givenNumber.length == number.length){
-		return true
-		} 
-	else {
-		return false
-		};
-};
+}
+
+var givenNumber = phoneNumber.start + phoneNumber.middle + phoneNumber.end
+
+if (givenNumber.length == number.length && isNaN(start + number.substring(middleN,7) + phoneNumber.end) == false)
+{return true} 
+else {return false};
+
+}
 
 //Does a string follow an aaa@bbb.ccc pattern like an email address?
 
@@ -83,7 +83,6 @@ var numberCompare = function (numArray, inputNum) {
 		if (numArray[i] >= inputNum) {
 			numArray[i]++
 			
-		
 		return number;	
 		};
 	};
@@ -123,7 +122,7 @@ var enterAmount = function (number) {
 
 var newLib = new myLibrary();
 
-console.log(newLib.enterPhoneNumber("949.421.7296"));
+console.log(newLib.enterPhoneNumber("949-585-0055"));
 console.log(newLib.enterEmailAddress("htiml5@fullsail.edu"));
 console.log(newLib.validWebsite("http://www.compix.tv"));
 console.log(newLib.numberCompare([0, 2, 4, 6 ,8], 1));
