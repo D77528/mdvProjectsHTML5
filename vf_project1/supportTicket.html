@@ -30,13 +30,15 @@
 						<ul>
 							<li><input type="radio" value="End User" id="endUser" name="contactType" /><label for="endUser">End User</label></li>
 							<li><input type="radio" value="Dealer" id="dealer" name="contactType" /><label for="dealer">Dealer</label></li>
+						</ul>	
+					</li>
+					<li>Contact Feelings
+						<ul>
+							<li>Very Happy <input type="range"  value="Contact Feelings" id="contactFeelings" name="contactFeelings" /> Extremely Upset</li>
 						</ul>
-						
 					</li>
 				</ul>
 			</fieldset>
-		</form>
-		<form action="#" method="post">
 			<fieldset>
 				<legend>Support Description</legend>
 					<ul>
@@ -51,11 +53,17 @@
 						</li>
 						<li><input type="checkbox" value="Waiting for Response?" id="awaitingReponse" /><label for="awaitingResponse">Waiting for Response?</label><!--Only one checkbox is here so that, if not checked, javascript will assume "else" not awaiting response. -->
 						<li><label for="comments">Provide Support Overview:</label><textarea id="comments"></textarea></li>
-						<li><input type="hidden" value="true" /></li>
+						<li><input type="hidden" name="timeStamp" /></li>
 					</ul>
 			</fieldset>
+		<input type="submit" value="SUBMIT" />
 		</form>
+		
+		<ul>
+			<li>
+				<a href="#" title="Display Data">Display Data</a>
+				<a href="#" title="Clear Stored Data">Clear Stored Data</a>
+			</li>
+		</ul>
 	</body>
-
-
 </html>
