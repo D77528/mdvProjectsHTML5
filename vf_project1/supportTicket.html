@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Character Set Meta -->
+		<meta charset="utf-8" />
+		<meta name="description" content="Technical Support Ticket Form" />
+		<meta name="keywords" content="Compix Media, support ticket, Full Sail University" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" /> <!-- geared towards IPhone -->
+		<title>Compix Media Add Support Ticket</title>
+		
+	</head>
+	<body>
+		<header>
+			<hgroup>
+				<h1>Technical Support Ticket System</h1>
+				<h2>Enter Ticket Below</h2>
+			</hgroup>
+		</header>
+
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Contact Info</legend>
+				<ul>
+					<li><label for="firstn">First Name:</label><input type="text" id="firstn" /></li>
+					<li><label for="lastn">Last Name:</label><input type="text" id="lastn" /></li>
+					<li><label for="email">Email:</label><input type="text" id="email" /></li>
+					<li><label for="phone">Phone Number:</label><input type="text" id="phone" /></li>
+					<li>Contact Type
+						<ul>
+							<li><input type="radio" value="End User" id="endUser" name="contactType" /><label for="endUser">End User</label></li>
+							<li><input type="radio" value="Dealer" id="dealer" name="contactType" /><label for="dealer">Dealer</label></li>
+						</ul>
+						
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Support Description</legend>
+					<ul>
+						<li>
+							<label for="supportType">Support Type</label>
+							<select id="supportType">
+								<option value="call">Call</option>
+								<option value="email">Email</option>
+								<option value="onlineChat">Online Chat</option>
+								<option value="supportForm">Support Form</option>
+							</select>
+						</li>
+						<li><input type="checkbox" value="Waiting for Response?" id="awaitingReponse" /><label for="awaitingResponse">Waiting for Response?</label><!--Only one checkbox is here so that, if not checked, javascript will assume "else" not awaiting response. -->
+						<li><label for="comments">Provide Support Overview:</label><textarea id="comments"></textarea></li>
+						<li><input type="hidden" value="true" /></li>
+					</ul>
+			</fieldset>
+		</form>
+	</body>
+
+
+</html>
