@@ -1,4 +1,6 @@
 <!doctype html>
+<!--Reyes, Timothy - VF1302 - Project Web App Part 1 -- GitHub link: https://github.com/D77528/mdvProjectsHTML5/tree/master/vf_project1 --> 
+
 <html>
 	<head>
 		<!-- Character Set Meta -->
@@ -8,7 +10,6 @@
 		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="user-scalable=no, width=device-width" /> <!-- geared towards IPhone -->
 		<title>Compix Media Add Support Ticket</title>
-		
 	</head>
 	<body>
 		<header>
@@ -34,7 +35,7 @@
 					</li>
 					<li>Contact Feelings
 						<ul>
-							<li>Very Happy <input type="range"  value="Contact Feelings" id="contactFeelings" name="contactFeelings" /> Extremely Upset</li>
+							<li>Happy / Upset  <input type="range"  value="Contact Feelings" id="contactFeelings" name="contactFeelings" /></li>
 						</ul>
 					</li>
 				</ul>
@@ -42,6 +43,7 @@
 			<fieldset>
 				<legend>Support Description</legend>
 					<ul>
+						<li><input type="date" value="Enter Date" id="date" name="date" /></li>
 						<li>
 							<label for="supportType">Support Type</label>
 							<select id="supportType">
@@ -51,9 +53,9 @@
 								<option value="supportForm">Support Form</option>
 							</select>
 						</li>
-						<li><input type="checkbox" value="Waiting for Response?" id="awaitingReponse" /><label for="awaitingResponse">Waiting for Response?</label><!--Only one checkbox is here so that, if not checked, javascript will assume "else" not awaiting response. -->
+						<li><input type="checkbox" value="Is contact waiting for response?" id="awaitingResponse" /><label for="awaitingResponse">Is contact waiting for response?</label>
 						<li><label for="comments">Provide Support Overview:</label><textarea id="comments"></textarea></li>
-						<li><input type="hidden" name="timeStamp" /></li>
+						<li><input type="hidden" name="link to online database" /></li>
 					</ul>
 			</fieldset>
 		<input type="submit" value="SUBMIT" />
