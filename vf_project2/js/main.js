@@ -10,7 +10,7 @@ var fieldObjects = {
 	rangeContactFeelings = document.getElementById("contactFeelings"),
 	listSupportType = document.getElementById ("supportType"),
 	checkboxAwaiting = document.getElementById("awaitingResponse"),
-	submit = document.getElementById("button")
+	submit = document.getElementById("button");
 
 
 //var getValue = function (){
@@ -19,21 +19,49 @@ var fieldObjects = {
 //};
 
 //formObjects.rangeContactFeelings.addEventListener("blur", getValue);//change for range
-var getValue = function(){
+var getValueFieldObjects = function(){
 	localStorage.setItem("First Name", fieldObjects.firstName.value);
 	localStorage.setItem("Last Name", fieldObjects.lastName.value);
 	localStorage.setItem("Email Address", fieldObjects.email.value);
 	localStorage.setItem("Phone Number", fieldObjects.phone.value);
 	localStorage.setItem("Date Entered", fieldObjects.dateEnterDate.value);
+	localStorage.setItem("End User", radioContactType[0].checked);
+	localStorage.setItem("Dealer", radioContactType[1].checked);
+	localStorage.setItem("Contact Feelings Happy: 0 ~ Upset: 100", rangeContactFeelings.value);
+	localStorage.setItem("Support Type", listSupportType.value);
+	localStorage.setItem("Waiting for Response", checkboxAwaiting);
+	localStorage.setItem("Support Overview", fieldObjects.fieldOverview.value);
+	
 	};
 	
-//}
-fieldObjects.firstName.addEventListener("blur", getValue);
-fieldObjects.lastName.addEventListener("blur", getValue);
-fieldObjects.email.addEventListener("blur", getValue);
-fieldObjects.phone.addEventListener("blur", getValue);
-fieldObjects.dateEnterDate.addEventListener("blur", getValue);
-//radioContactType.addEventListener("blur", getValue5);
+console.log(checkboxAwaiting);
+/*
+var getValueRadio = function(){
+	if (radioContactType[0].checked == false)
+	{
+		localStorage.setItem("End User", radioContactType[0].checked)
+	}
+		else (localStorage.setItem("Dealer", radioContactType[1].checked))
+};
+*/
+/*
+var getValueRadio = function(){
+	localStorage.setItem("End User", radioContactType[0].checked);
+	localStorage.setItem("Dealer", radioContactType[1].checked);
+	
+};
+*/
+fieldObjects.firstName.addEventListener("blur", getValueFieldObjects);
+fieldObjects.lastName.addEventListener("blur", getValueFieldObjects);
+fieldObjects.email.addEventListener("blur", getValueFieldObjects);
+fieldObjects.phone.addEventListener("blur", getValueFieldObjects);
+fieldObjects.dateEnterDate.addEventListener("blur", getValueFieldObjects);
+radioContactType[0].addEventListener("click", getValueFieldObjects);
+radioContactType[1].addEventListener("click", getValueFieldObjects);
+rangeContactFeelings.addEventListener("change", getValueFieldObjects);
+listSupportType.addEventListener("blur", getValueFieldObjects);
+checkboxAwaiting.addEventListener("click", getValueFieldObjects);
+fieldObjects.fieldOverview.addEventListener("blur", getValueFieldObjects);
 
 
 //localStorage.setItem("key","value")
