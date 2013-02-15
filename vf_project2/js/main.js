@@ -1,83 +1,134 @@
+//Wait until the DOM is ready
 
+window.addEventListener("DOMContentLoaded", function(){
+
+
+	function element(x){ // default function for getElementById
+		var ElementGrabber = document.getElementById(x);
+		return ElementGrabber;
+	}
+
+	
+	var supportTypeList = ["Call", "Email", "Online Chat", "Support Form"];//Suppot Type List
+
+	//Set Link & Submit Click Events
+	
+	var displayData = element("displayData");
+	displayData.addEventListener("click", getData); //event listener
+
+	var clearData = element("clearStoredData");
+	clearData.addEventListener("click", clearLocal); //event listener
+
+	var submit = element("button");
+	button.addEventListener("click", showData);
+
+
+
+
+
+
+
+});
+
+
+
+
+/*
 var firstName = {
-	"connect" : document.getElementById("firstn")
+	"value" : document.getElementById("firstn"),
+	"name" : "First Name: "
 	},
 	lastName = {
-	"connect" : document.getElementById("lastn")
+	"value" : document.getElementById("lastn"),
+	"name" : "Last Name: "
 	},
 	email = {
-	"connect" : document.getElementById("email")
+	"value" : document.getElementById("email"),
+	"name" : "Email Address: "
 	},
 	phone = {
-	"connect" : document.getElementById("phone")
+	"value" : document.getElementById("phone"),
+	"name" : "Phone Number: "
 	},
 	fieldOverview = {
-	"connect" : document.getElementById("comments")
+	"value" : document.getElementById("comments"),
+	"name" : "Support Overview: "
 	},
 	dateEnterDate = {
-	"connect" : document.getElementById("date")
-	},
-	radioContactEndUser = {
-	"connect" : document.getElementsByName("contactType")[0]
-	},
-	radioContactDealer = {
-	"connect" : document.getElementsByName("contactType")[1]
+	"value" : document.getElementById("date"),
+	"name" : "Date: "
 	},
 	rangeContactFeelings = {
-	"connect" : document.getElementById("contactFeelings")
+	"value" : document.getElementById("contactFeelings"),
+	"name" : "Contact Feelings: "
 	},
 	listSupportType = {
-	"connect" : document.getElementById ("supportType")
+	"value" : document.getElementById ("supportType"),
+	"name" : "Support Type: "
+	},
+	radioContact = {
+	"value" : document.getElementsByName("contactType"),
+	"name" : "EndUser or Dealer: "
 	},
 	checkboxAwaiting = {
-	"connect" : document.getElementById("awaitingResponse")
+	"value" : document.getElementById("awaitingResponse"),
+	"name" : "Contact Waiting for Response: "
 	};
 var submit = document.getElementById("button");
 var results = document.getElementById("results");
 
-var	allFieldObjects = [firstName, lastName, email, phone, fieldOverview, dateEnterDate, radioContactEndUser, radioContactDealer, rangeContactFeelings, listSupportType, checkboxAwaiting];
-	
+var	allFieldObjects = [firstName, lastName, email, phone, fieldOverview, dateEnterDate, rangeContactFeelings, listSupportType, radioContact, checkboxAwaiting];
+
+console.log(radioContact.value);
+
+
+var getValueFieldObjects = function(){
+	localStorage.setItem("First Name", firstName.value.value);
+	localStorage.setItem("Last Name", lastName.value.value);
+	localStorage.setItem("Email Address", email.value.value);
+	localStorage.setItem("Phone Number", phone.value.value);
+	localStorage.setItem("Date Entered", dateEnterDate.value.value);
+	localStorage.setItem("End User", radioContactEndUser.value.checked);
+	localStorage.setItem("Dealer", radioContactDealer.value.checked);
+	localStorage.setItem("Contact Feelings Happy: 0 ~ Upset: 100", rangeContactFeelings.value.value);
+	localStorage.setItem("Support Type", listSupportType.value.value);
+	localStorage.setItem("Waiting for Response", checkboxAwaiting.value.checked);
+	localStorage.setItem("Support Overview", fieldOverview.value.value);
+}
+
+
+
 
 var showData = function(){
 	var displayTag = document.createElement("ol");
-	
 	for(i=0, j=allFieldObjects.length; i<j; i++){
-		var listResults = document.createElement("il");
+		var listResults = document.createElement("li");
 			displayTag.appendChild(listResults);
-			listResults.innerHTML = firstName.connect.value + lastName.connect.value
+			console.log(allFieldObjects[i]);
+			listResults.innerHTML = allFieldObjects[i].name + allFieldObjects[i].value.value
 	}
 
 results.appendChild(displayTag);
-}
-/*
-var getValueFieldObjects = function(){
-	localStorage.setItem("First Name", firstName.connect.value);
-	localStorage.setItem("Last Name", lastName.connect.value);
-	localStorage.setItem("Email Address", email.connect.value);
-	localStorage.setItem("Phone Number", phone.connect.value);
-	localStorage.setItem("Date Entered", dateEnterDate.connect.value);
-	localStorage.setItem("End User", radioContactEndUser.connect.checked);
-	localStorage.setItem("Dealer", radioContactDealer.connect.checked);
-	localStorage.setItem("Contact Feelings Happy: 0 ~ Upset: 100", rangeContactFeelings.connect.value);
-	localStorage.setItem("Support Type", listSupportType.connect.value);
-	localStorage.setItem("Waiting for Response", checkboxAwaiting.connect.checked);
-	localStorage.setItem("Support Overview", fieldOverview.connect.value);
+submit.setAttribute("disabled", "disabled");
 }
 
-firstName.connect.addEventListener("blur", getValueFieldObjects);
-lastName.connect.addEventListener("blur", getValueFieldObjects);
-email.connect.addEventListener("blur", getValueFieldObjects);
-phone.connect.addEventListener("blur", getValueFieldObjects);
-dateEnterDate.connect.addEventListener("blur", getValueFieldObjects);
-radioContactEndUser.connect.addEventListener("click", getValueFieldObjects);
-radioContactDealer.connect.addEventListener("click", getValueFieldObjects);
-rangeContactFeelings.connect.addEventListener("change", getValueFieldObjects);
-listSupportType.connect.addEventListener("blur", getValueFieldObjects);
-checkboxAwaiting.connect.addEventListener("click", getValueFieldObjects);
-fieldOverview.connect.addEventListener("blur", getValueFieldObjects);
-*/
+
+firstName.value.addEventListener("blur", getValueFieldObjects);
+lastName.value.addEventListener("blur", getValueFieldObjects);
+email.value.addEventListener("blur", getValueFieldObjects);
+phone.value.addEventListener("blur", getValueFieldObjects);
+dateEnterDate.value.addEventListener("blur", getValueFieldObjects);
+radioContactEndUser.value.addEventListener("click", getValueFieldObjects);
+radioContactDealer.value.addEventListener("click", getValueFieldObjects);
+rangeContactFeelings.value.addEventListener("change", getValueFieldObjects);
+listSupportType.value.addEventListener("blur", getValueFieldObjects);
+checkboxAwaiting.value.addEventListener("click", getValueFieldObjects);
+fieldOverview.value.addEventListener("blur", getValueFieldObjects);
+
 submit.addEventListener("click", showData);
 
+
+*/
 
 
 
