@@ -2,25 +2,128 @@
 
 window.addEventListener("DOMContentLoaded", function(){
 
-
+	var supportTypeList = ["Call", "Email", "Online Chat", "Support Form"];//Suppot Type List
+	var contactTypeValue;
+	var responseBox = "No"
+	
+	
 	function element(x){ // default function for getElementById
 		var ElementGrabber = document.getElementById(x);
 		return ElementGrabber;
 	}
+	
+	
+	
+		//Dropdown supportTypeList
+	
+	function dynamicInsert() {
+		var formTag = document.getElementsByTagName("form"), //formTag is an array because Element(s)
+			selectListItem = element("select"),
+			makeSelect = document.createElement("select");
+			
+			makeSelect.setAttribute("id", "supportType");
+			
+		for(var i=0, j=supportTypeList.length; i<j; i++){
+			var makeOption = document.createElement("option")
+			var	optText = supportTypeList[i];
+			makeOption.setAttribute("value", optText);
+			makeOption.innerHTML = optText;
+			makeSelect.appendChild(makeOption);
+		}
+		selectListItem.appendChild(makeSelect);
+		
+	}
 
 	
-	var supportTypeList = ["Call", "Email", "Online Chat", "Support Form"];//Suppot Type List
 
-	//Set Link & Submit Click Events
+	
+	dynamicInsert()
+
+	function endUserValue(){
+		var contactRadios = document.forms[0].contactType;
+		
+		for(var i=0; i<contactRadios.length; i++){
+			if(contactRadios[i].checked){
+				contactTypeValue = contactRadios[i].value;
+			}
+		}
+		
+	}
+
+	function getCheckValue(){
+		if(element("awaitingResponse").checked){
+			responseBox = element("awaitingResponse").value;
+		}else{
+			responseBox = "No response needed."
+		}
+		
+	}
+
+
+	function showData(){
+		var id	= Math.floor(Math.random()*293842);
+	
+		//Gather up all our form field values and store in an object.
+		//Object properties contain array with both form label and input values
+		endUserValue();
+		getCheckValue();
+		var items = {
+				list : ["Support Type: ", element("supportType").value],
+				firstn : ["First Name: ", element("firstn").value],
+				lastn : ["Last Name: ", element("lastn").value],
+				email : ["Email Address: ", element("email").value],
+				phone : ["Phone Number: ", element("phone").value],
+				date : ["Date Entered: ", element("date").value],
+				contactType : ["End User: ", endUserValue],
+				contactFeelings : ["Contact Feelings Happy: 0 ~ Upset: 100: ", element("contactFeelings").value],
+				supportType : ["Support Type: ", element("supportType").value],
+				response : ["Waiting for Response: ", responseBox],
+				comments : ["Support Overview: ", element("comments").value]
+			}
+			
+			//Save Data to Local Storage, use Stringify to convert object to string.
+			localStorage.setItem(id, JSON.stringify(items));
+		
+	}
+	
+
+	
+
+	function getData(){//EDIT THIS IT IS EXACTLY AS IN TUTORAIL!!!!
+			var makeDiv = document.createElement("div");
+			makeDiv.setAttribute("id", "items");
+			var makeList = document.createElement("ul");
+			makeDiv.appendChild(makeList);//creates initial container to hold
+			document.body.appendChild(makeDiv);
+			for(var i=0, len=localStorage.length; i<len; i++){
+				var makeli = document.createElement("li");
+				makeList.appendChild(makeli);
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);//long string from local storage.  converting back to object	
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				for(var n in obj){
+					var makeSubli = document.createElement("li");
+					makeSubList.appendChild(makeSubli);
+					var optSubText = obj[n][0] + obj[n][1];
+					makeSubli.innerHTML = optSubText;
+				}
+			
+		}	
+	}//EDIT THIS IT IS EXACTLY AS IN TUTORAIL!!!!
+
+	//Links: displayData, clearData & Submit Button
 	
 	var displayData = element("displayData");
 	displayData.addEventListener("click", getData); //event listener
 
 	var clearData = element("clearStoredData");
-	clearData.addEventListener("click", clearLocal); //event listener
+	//clearData.addEventListener("click", clearLocal); //event listener
 
 	var submit = element("button");
 	button.addEventListener("click", showData);
+	
 
 
 
@@ -28,7 +131,9 @@ window.addEventListener("DOMContentLoaded", function(){
 
 
 
-});
+
+
+
 
 
 
@@ -130,5 +235,5 @@ submit.addEventListener("click", showData);
 
 */
 
-
+});
 
