@@ -1,8 +1,9 @@
 /*
 
-title: Project 2
-by: Timothy Reyes
-date: 02/08/13
+Reyes, Timothy
+Virtual Frameworks 1302
+Project Web App Part 2
+GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project2
 
 */
 html {
@@ -16,22 +17,31 @@ hgroup {
 	line-height: 1.1em;
 }
 
+
 h2 {
 	color: #2b2b2b;
 	font-style: italic;
 }
 
+h3 {
+	color:#0000ff;
+	font-weight: bold;
+	margin: 30px 0px 10px 0px;
+	
+
+}
+
 fieldset {
 	background:#c7dbec;
 	margin: 30px 10px 10px 10px;
-	width: 500px;
+	width: 400px;
 	border: 5px ridge black;
 }
 
 li {
 	margin: 10px 0px 0px 0px;
 	list-style: none;
-	display: inline-block;
+	display: block;
 }
 
 legend {
@@ -47,12 +57,36 @@ input[type="text"]{
 	margin: 5px;
 }
 
+input[type="email"]{
+	width: 200px;
+	padding: 2px;
+	margin: 5px;
+}
+
 input[type="submit"]{
 	width: 150px;
 	padding: 10px;
 	margin: 25px;
 }
 
-a {
-	color: #ff0000
+input[type="button"]{
+	width: 200px;
+	height: 25px;
+	padding: 10px;
+	margin: 25px;
 }
+
+a {
+	color: #00a117
+}
+
+textarea {
+	width: 250px;
+	height: 50px;
+	display:block;
+}
+
+
+/* Classes */
+
+input.hasFocus{border: 2px solid #00a117};

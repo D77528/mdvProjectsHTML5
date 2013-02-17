@@ -1,3 +1,7 @@
+//Reyes, Timothy
+//Virtual Frameworks 1302
+//Project Web App Part 2
+//GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project2
 
 
 window.addEventListener("DOMContentLoaded", function(){
@@ -6,14 +10,14 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	var supportTypeList = ["Call", "Email", "Online Chat", "Support Form"];
 	var contactTypeValue;
-	var responseBox = "No"
+	var responseBox = "No";
 	
 	function element(x){
 		var ElementGrabber = document.getElementById(x);
 		return ElementGrabber;
 	};
 	
-	
+	console.log(document.getElementsByName("contactType"));
 	
 //Dropdown List: supportType
 	
@@ -64,15 +68,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 
-//ToggleControls for Display
+//ToggleContent for Display
 
-	function toggleControls(n){
-		switch(n){
+	function toggleContent(v){
+		switch(v){
 			case "on":
 				element("onlyForm").style.display = "none";
 				element("clearStoredData").style.display = "inline";
+				element("addNewItem").style.display = "inline";
 				element("displayData").style.display = "none";
-				element("addNewItem").style.display = "inline"
+				element("h1").style.display = "block";
+				element("h2").style.display = "block";
+				element("h3").style.display = "block";
 				break;
 				
 			case "off": //not looking at data
@@ -80,7 +87,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("clearStoredData").style.display = "inline";
 				element("displayData").style.display = "inline";
 				element("addNewItem").style.display = "none"
-				element("items").style.display = "none";
+				element("dataItems").style.display = "none";
 				break;
 			
 				break;
@@ -99,7 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		endUserValue();
 		getCheckValue();
 		
-		var items = {
+		var dataItems = {
 				list : ["Support Type: ", element("supportType").value],
 				firstn : ["First Name: ", element("firstn").value],
 				lastn : ["Last Name: ", element("lastn").value],
@@ -112,33 +119,41 @@ window.addEventListener("DOMContentLoaded", function(){
 				response : ["Waiting for Response: ", responseBox],
 				comments : ["Support Overview: ", element("comments").value]
 			}
-			localStorage.setItem(id, JSON.stringify(items));
+			alert ("Your Ticket has been submitted.")
+			localStorage.setItem(id, JSON.stringify(dataItems));
 		
 	};
 	
 
-//Submit Button is pressed	
+//Display Link is pressed	
 
-	function getData(){
-		toggleControls("on");
+	function displayD(){
+		toggleContent("on");
 			var HTMLDiv = document.createElement("div");
-			HTMLDiv.setAttribute("id", "items");
-			var makeList = document.createElement("ul");
-			HTMLDiv.appendChild(makeList);
+			HTMLDiv.setAttribute("id", "dataItems", "align");
+			HTMLDiv.align ="left";
+			var newList = document.createElement("ul");
+			HTMLDiv.appendChild(newList);
 			document.body.appendChild(HTMLDiv);
-			element("items").style.display = "block";
-			for(var i=0, len=localStorage.length; i<len; i++){
-				var makeli = document.createElement("li");
-				makeList.appendChild(makeli);
-				var key = localStorage.key(i);
-				var value = localStorage.getItem(key);
-				var obj = JSON.parse(value);
+			element("dataItems").style.display = "block";
+			element("dataItems").style.display = ""
+			for(var i=0, localStorageLen=localStorage.length; i<localStorageLen; i++){
+				var li = document.createElement("li");
+				newList.appendChild(li);
+				var code = localStorage.key(i);
+				var value = localStorage.getItem(code);
+				var object = JSON.parse(value);
 				var makeTabList = document.createElement("ul");
-				makeli.appendChild(makeTabList);
-				for(var n in obj){
+				makeTabList.style.border="2px solid black";
+				makeTabList.style.padding="10px";
+				makeTabList.width-"200px";
+				var inc	= Math.floor(Math.random()*1000001);
+				makeTabList.innerHTML = "Ticket Number: " + inc;
+				li.appendChild(makeTabList);
+				for(var v in object){
 					var makeTabli = document.createElement("li");
 					makeTabList.appendChild(makeTabli);
-					var text = obj[n][0] + obj[n][1];
+					var text = object[v][0] + object[v][1];
 					makeTabli.innerHTML = text;
 				}
 			
@@ -165,7 +180,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Links: displayData, clearData & Submit Button
 	
 	var displayData = element("displayData");
-	displayData.addEventListener("click", getData);
+	displayData.addEventListener("click", displayD);
 
 	var clearData = element("clearStoredData");
 	clearData.addEventListener("click", clearLocal);
