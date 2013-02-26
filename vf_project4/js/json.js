@@ -6,7 +6,7 @@ var jsonObjects = {
 		"phone" : ["Phone Number: ", "(949)585-0055"],
 		"date" : ["Date Entered: ", "1978-12-15"],
 		"contactType" : ["Contact Type: ", "End User"],
-		"contactFeeling" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "75"],
+		"contactFeelings" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "75"],
 		"supportType" : ["Support Type: ", "Call"],
 		"response" : ["Waiting for Response: ", "Yes"],
 		"comments" : ["Support Overview: ", "There is nothing to see here."]
@@ -18,8 +18,8 @@ var jsonObjects = {
 		"phone" : ["Phone Number: ", "(949)585-0055"],
 		"date" : ["Date Entered: ", "1983-01-28"],
 		"contactType" : ["Contact Type: ", "Dealer"],
-		"contactFeeling" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "25"],
-		"supportType" : ["Support Type: ", "Call"],
+		"contactFeelings" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "25"],
+		"supportType" : ["Support Type: ", "Email"],
 		"response" : ["Waiting for Response: ", "No"],
 		"comments" : ["Support Overview: ", "There is nothing to see here."]
 	},
@@ -30,8 +30,8 @@ var jsonObjects = {
 		"phone" : ["Phone Number: ", "(949)585-0055"],
 		"date" : ["Date Entered: ", "2010-04-23"],
 		"contactType" : ["Contact Type: ", "End User"],
-		"contactFeeling" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "100"],
-		"supportType" : ["Support Type: ", "Call"],
+		"contactFeelings" : ["Contact Feelings Happy: 0 ~ Upset: 100: ", "100"],
+		"supportType" : ["Support Type: ", "Online_Chat"],
 		"response" : ["Waiting for Response: ", "Yes"],
 		"comments" : ["Support Overview: ", "There is nothing to see here."]
 	}

@@ -127,7 +127,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	function displayD(){
 		toggleContent("on");
 		if(localStorage.length === 0){
-			alert("No Support Tickets Entered, will auto-populate Ticket entry")
+			alert("No Support Tickets Entered; will auto-populate Ticket entry");
 			autoFillTicket();
 		}
 			var HTMLDiv = document.createElement("div");
@@ -140,7 +140,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			element("dataItems").style.display = ""
 			for(var i=0, j=localStorage.length; i<j; i++){
 				var li = document.createElement("li");
-				var createLi = document.createElement("li");//edit
+				var createLi = document.createElement("li");
 				newList.appendChild(li);
 				var key = localStorage.key(i);
 				var value = localStorage.getItem(key);
@@ -150,8 +150,6 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeTabList.style.padding="10px";
 				makeTabList.width-"200px";
 				getImg(object.supportType[1], makeTabList);
-				//var inc	= Math.floor(Math.random()*1000001);
-				//makeTabList.innerHTML = "Ticket Number: " + inc;
 				li.appendChild(makeTabList);
 				for(var v in object){
 					var makeTabli = document.createElement("li");
@@ -164,7 +162,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 	};
 	
-	//Get Image for Support Type
+//Get Image for Support Type
 	function getImg(varImg, makeTabList){
 		var imgLi = document.createElement("li");
 		makeTabList.appendChild(imgLi);
@@ -173,9 +171,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		imgLi.appendChild(newImage);
 		
 		
-	}
+	};
 
 
+//Auto Fill Ticket	
+	function autoFillTicket(){
+		for(var n in jsonObjects){
+			var id	= Math.floor(Math.random()*293842);
+			localStorage.setItem(id, JSON.stringify(jsonObjects[n]));
+		}
+	};
+
+	
 // Links for Edit & Delete Ticket	
 	function makeItemLinks(key, createLi){
 		var createEditLink = document.createElement("a");
@@ -220,20 +227,19 @@ window.addEventListener("DOMContentLoaded", function(){
 				}else if(radios[i].value == "Dealer" && item.contactType[1] == "Dealer"){
 					radios[i].setAttribute("checked", "checked");
 			}
-		}
+		};
+		element("contactFeelings").value = item.contactFeelings[1];
+		element("supportType").value = item.supportType[1];
 		
 		if(item.response[1] == "Contact waiting for response."){
 			element("awaitingResponse").setAttribute("checked", "checked")
-			
-		}	
-		
-		element("contactFeelings").value = item.contactFeelings[1];
-		element("supportType").value = item.supportType[1];
+		};
 		element("comments").value = item.comments[1];
 		
 		button.removeEventListener("click", showData);
-		
+
 		element("button").value = "Edit Ticket";
+		
 		var editButton = element("button");
 		editButton.addEventListener("click", validate);
 		editButton.key = this.key;
@@ -268,13 +274,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 	};
-//Auto Fill Ticket	
-	function autoFillTicket(){
-		for (var n in jsonObjects){
-			var id	= Math.floor(Math.random()*293842);
-			localStorage.setItem(id, JSON.stringify(jsonObjects[n]))
-		}
-	}
 	
 	
 //Validation Function

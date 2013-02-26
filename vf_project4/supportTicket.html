@@ -1,5 +1,5 @@
 <!doctype html>
-<!--Reyes, Timothy - VF1302 - Project Web App Part 2 -- GitHub link: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project2 --> 
+<!--Reyes, Timothy - VF1302 - Project Web App Part 4 -- GitHub link: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4 --> 
 
 <html>
 	<head>
@@ -15,6 +15,7 @@
 	</head>
 	<body>
 		<header>
+			<img src="img/banner.png" class="banner" />
 			<hgroup>
 				<h1 id="h1" style="display:''">Technical Support Tickets</h1>
 				<h2 id="h2" style="display:''">Enter Ticket Below</h2>
@@ -29,6 +30,7 @@
 					<li><label for="lastn">Last Name:</label><input type="text" id="lastn" /></li>
 					<li><label for="email">Email:</label><input type="email" id="email" /></li>
 					<li><label for="phone">Phone Number:</label><input type="text" id="phone" /></li>
+					<li>Enter Date<input type="date" value="Enter Date" id="date" name="date" /></li>
 					<li>Contact Type
 						<ul>
 							<li><input type="radio" value="End User" id="endUser" name="contactType" /><label for="endUser">End User</label></li>
@@ -45,7 +47,6 @@
 			<fieldset>
 				<legend>Support Description</legend>
 					<ul>
-						<li>Enter Date<input type="date" value="Enter Date" id="date" name="date" /></li>
 						<li id="select">
 							<label for="supportType">Support Type</label>
 						</li>
@@ -55,21 +56,21 @@
 					</ul>
 			</fieldset>
 			<div>
-			<ul id="anyErrors"></ul>
-		<input type="button" name:"SUBMIT" value="SUBMIT" id="button"/>
+				<ul id="anyErrors"></ul>
+				<input type="button" name:"SUBMIT" value="SUBMIT" id="button"/>
 			</div>
 		</form>
 		<div>
-		<ul>
-
+			<ul>
+	
 				<li>
 					<a href="#" title="Display Data" id="displayData">Display Data</a>
 					<a href="supportTicket.html" id="addNewItem" style="display:none;">Add New Item</a>
 					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
 					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
 				</li>
-			
-		</ul>
+				
+			</ul>
 		</div>
 	<script src="js/json.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
