@@ -15,7 +15,9 @@
 	</head>
 	<body>
 		<header>
-			<img src="img/banner.png" class="banner" />
+			<div>
+				<img src="img/banner.png" class="banner" />
+			</div>
 			<hgroup>
 				<h1 id="h1" style="display:''">Technical Support Tickets</h1>
 				<h2 id="h2" style="display:''">Enter Ticket Below</h2>
@@ -30,16 +32,17 @@
 					<li><label for="lastn">Last Name:</label><input type="text" id="lastn" /></li>
 					<li><label for="email">Email:</label><input type="email" id="email" /></li>
 					<li><label for="phone">Phone Number:</label><input type="text" id="phone" /></li>
-					<li>Enter Date<input type="date" value="Enter Date" id="date" name="date" /></li>
-					<li>Contact Type
+					<li>Enter Date:<input type="date" value="Enter Date" id="date" name="date" /></li>
+					<li>Contact Type:
 						<ul>
 							<li><input type="radio" value="End User" id="endUser" name="contactType" /><label for="endUser">End User</label></li>
 							<li><input type="radio" value="Dealer" id="dealer" name="contactType" /><label for="dealer">Dealer</label></li>
 						</ul>	
 					</li>
-					<li>Contact Feelings
+					<li>Contact Feelings:
 						<ul>
-							<li><label for="contactFeelings">Happy / Upset</label><input type="range"  value="Contact Feelings" id="contactFeelings" /></li>
+							<li><label for="contactFeelings">Happy / Upset</label><input type="range"  value="Contact Feelings" id="contactFeelings" /><label id="feelings"></label></li>
+							
 						</ul>
 					</li>
 				</ul>
@@ -48,7 +51,7 @@
 				<legend>Support Description</legend>
 					<ul>
 						<li id="select">
-							<label for="supportType">Support Type</label>
+							<label for="supportType">Support Type:</label>
 						</li>
 						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" /><label for="awaitingResponse">Is contact waiting for response?</label>
 						<li><label for="comments">Support Overview:</label><textarea id="comments"></textarea></li>

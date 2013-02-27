@@ -1,10 +1,28 @@
 //Reyes, Timothy
 //Virtual Frameworks 1302
-//Project Web App Part 3
-//GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project3
+//Project Web App Part 4
+//GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4
 
 
 window.addEventListener("DOMContentLoaded", function(){
+
+
+//Contact Feelings Numbering for Range Input
+
+	var feelings = element("contactFeelings");
+	var feelingsValue = element("feelings");
+	
+	if(feelingsValue.value === undefined){
+		feelingsValue.innerHTML = "?"
+	}
+	
+	var getFeelings = function(){
+		var get = element("feelings");
+		get.innerHTML = feelings.value;
+	};
+	
+	feelings.addEventListener("change", getFeelings);
+
 
 
 //Global variables
