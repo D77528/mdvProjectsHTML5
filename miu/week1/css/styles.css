@@ -1,0 +1,133 @@
+/*
+
+Reyes, Timothy
+Virtual Frameworks 1302
+Project Web App Part 4
+GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4
+
+*/
+html {
+	background: #e6e6e6;
+	font-family: helvetica, arial, serif;
+}
+
+hgroup {
+	text-align: center;	
+	white-space: nowrap;
+	line-height: 1.1em;
+	margin: auto;
+}
+
+h2 {
+	color: #2b2b2b;
+	font-style: italic;
+}
+
+h3 {
+	color:#0000ff;
+	font-weight: bold;
+	margin: 30px auto 0px auto;
+}
+
+div h1 {
+	font-size: 150%;
+}
+
+div h2 {
+	font-size: 100%;
+	color: #2b2b2b;
+	font-style: italic;
+	text-align: center;
+
+}
+
+div {
+	margin: auto;
+}
+
+fieldset {
+	background:#c7dbec;
+	margin: 30px auto 10px auto;
+	width: 400px;
+	border: 5px ridge black;
+}
+
+li {
+	margin: 10px 0px 0px 0px;
+	list-style: none;
+	display: block;
+}
+
+legend {
+	font-weight: bold;
+	color: #fff;
+	background: #000000;
+	padding: 5px;
+}
+
+input[type="text"]{
+	width: 200px;
+	padding: 2px;
+	margin: 5px;
+}
+
+input[type="email"]{
+	width: 200px;
+	padding: 2px;
+	margin: 5px;
+}
+
+input[type="submit"]{
+	width: 150px;
+	padding: 10px;
+	margin: 25px;
+}
+
+input[type="button"]{
+	width: 200px;
+	height: 25px;
+	padding: 10px;
+	margin: 25px;
+}
+
+input[type="range"]{
+	margin: 0px 10px 0px 10px;
+}
+
+a {
+	color: #00a117
+}
+
+textarea {
+	width: 250px;
+	height: 50px;
+	display:block;
+}
+
+div img {
+	width: 150%;
+}
+
+li img {
+	width: 74px;
+}
+
+#addSupportTicket {
+	padding: 25px;
+	text-align: center;
+	margin: auto;
+	font-size: 125%;
+}
+
+/* Classes */
+
+
+.banner {
+	position:absolute;
+	top:0px; 
+	left:0px;
+	width: 100%;
+}
+
+input.hasFocus{border: 2px solid #00a117};
+
