@@ -1,14 +1,8 @@
-/*
 
-Reyes, Timothy
-Virtual Frameworks 1302
-Project Web App Part 4
-GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4
-
-*/
 html {
 	background: #e6e6e6;
 	font-family: helvetica, arial, serif;
+
 }
 
 div ul li {
@@ -17,14 +11,14 @@ div ul li {
 	text-align: left;
 }
 
-table {
+div table {
 	background: -webkit-linear-gradient(#cbcbcb 0%, #ffffff 100%);
 	width: 100%;
 }
 
-td {
+div table tr td {
 	background:-webkit-linear-gradient(#ffbb00 0%, #cbcbcb 100%);
-	padding: 15px  0px 15px 0px;
+	padding: 10px  0px 10px 0px;
 }
 
 
@@ -91,10 +85,10 @@ input[type="text"]{
 	margin: 5px;
 }
 
-div input[type="text"]{
+td input[type="text"]{
 	width: 100px;
 	padding: 2px;
-	margin: 5px;
+	margin: 7px;
 }
 
 input[type="email"]{
@@ -142,6 +136,20 @@ textarea {
 
 #featureBackground {
 	background-image: url("../img/feature_bg.jpg");
+	width: 100%;
+	height: 180px;
+}
+
+#enterTicket {
+	position:absolute;
+	top:0px; 
+	left:0px;
+	width: 100%;
+	color: black;
+}
+
+#compixImage {
+	padding: 7px 0px 0px 0px;
 }
 
 
@@ -162,6 +170,15 @@ textarea {
     display: block;
     float: left;
     width: 100%;
+}
+
+.topRow {
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.35), 0 2px 3px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    float: left;
+    width: 100%;
+	
 }
 
 input.hasFocus{border: 2px solid #00a117};
