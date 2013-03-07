@@ -1,0 +1,85 @@
+<!doctype html>
+<!--Reyes, Timothy - VF1302 - Project Web App Part 4 -- GitHub link: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4 --> 
+
+<html>
+	<head>
+		<!-- Character Set Meta -->
+		<meta charset="utf-8" />
+		<meta name="description" content="Technical Support Ticket Form" />
+		<meta name="keywords" content="Compix Media, support ticket, Full Sail University" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" /> <!-- geared towards IPhone -->
+		<title>Compix Media Support Tickets</title>
+		<link rel="stylesheet" href="css/styles.css" />
+
+	</head>
+	<body>
+		<header>
+			<div>
+				<img src="img/banner.png" class="banner" />
+			</div>
+			<hgroup>
+				<h1 id="h1" style="display:''">Technical Support Tickets</h1>
+				<h2 id="h2" style="display:''">Enter Ticket Below</h2>
+			</hgroup>
+		</header>
+
+		<form action="#" method="post" id="onlyForm">
+			<fieldset>
+				<legend>Contact Info</legend>
+				<ul>
+					<li><label for="firstn">First Name:</label><input type="text" id="firstn" /></li>
+					<li><label for="lastn">Last Name:</label><input type="text" id="lastn" /></li>
+					<li><label for="email">Email:</label><input type="email" id="email" /></li>
+					<li><label for="phone">Phone Number:</label><input type="text" id="phone" /></li>
+					<li>Enter Date:<input type="date" value="Enter Date" id="date" name="date" /></li>
+					<li>Contact Type:
+						<ul>
+							<li><input type="radio" value="End User" id="endUser" name="contactType" /><label for="endUser">End User</label></li>
+							<li><input type="radio" value="Dealer" id="dealer" name="contactType" /><label for="dealer">Dealer</label></li>
+						</ul>	
+					</li>
+					<li>Contact Feelings:
+						<ul>
+							<li><label for="contactFeelings">Happy / Upset</label><input type="range"  value="Contact Feelings" id="contactFeelings" /><label id="feelings"></label></li>
+							
+						</ul>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>Support Description</legend>
+					<ul>
+						<li id="select">
+							<label for="supportType">Support Type:</label>
+						</li>
+						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" /><label for="awaitingResponse">Is contact waiting for response?</label>
+						<li><label for="comments">Support Overview:</label><textarea id="comments"></textarea></li>
+						<li><input type="hidden" name="link to online database" /></li>
+					</ul>
+			</fieldset>
+			<div>
+				<ul id="anyErrors"></ul>
+				<input type="button" name:"SUBMIT" value="SUBMIT" id="button"/>
+			</div>
+		</form>
+		<div>
+			<ul>
+	
+				<li>
+					<a href="#" title="Display Data" id="displayData">Display Data</a>
+					<a href="supportTicket.html" id="addNewItem" style="display:none;">Add New Item</a>
+					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
+					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
+				</li>
+				
+			</ul>
+		</div>
+	<script src="js/json.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	</body>
+</html>
+
+
+
+
