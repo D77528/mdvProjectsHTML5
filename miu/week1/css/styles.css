@@ -16,11 +16,6 @@ div table {
 	width: 100%;
 }
 
-div table tr td {
-	background:-webkit-linear-gradient(#ffbb00 0%, #cbcbcb 100%);
-	padding: 10px  0px 10px 0px;
-}
-
 
 hgroup {
 	text-align: center;	
@@ -46,23 +41,10 @@ h3 {
 	margin: 30px auto 0px auto;
 }
 
-div h1 {
-	font-size: 150%;
-}
-
-div h2 {
-	font-size: 100%;
-	color: #2b2b2b;
-	font-style: italic;
-	text-align: center;
-
-}
-
-
 fieldset {
 	background:#c7dbec;
 	margin: 30px auto 10px auto;
-	width: 400px;
+	width: 320px;
 	border: 5px ridge black;
 }
 
@@ -114,11 +96,8 @@ input[type="range"]{
 	margin: 0px 10px 0px 10px;
 }
 
-a {
-	color: #00a117
-}
 
-textarea {
+textarea { /*for comments section */
 	width: 250px;
 	height: 50px;
 	display:block;
@@ -136,8 +115,11 @@ textarea {
 
 #featureBackground {
 	background-image: url("../img/feature_bg.jpg");
-	width: 100%;
-	height: 180px;
+	width: 380px;
+	height: 215px;
+	background-size: 100%;
+	border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.75), 0px 5px 6px rgba(0, 0, 0, 0.75);
 }
 
 #enterTicket {
@@ -149,9 +131,17 @@ textarea {
 }
 
 #compixImage {
-	padding: 7px 0px 0px 0px;
+	padding: 7px 0px 0px 15px;
 }
 
+#goButton {
+	padding: 0px 15px 0px 0px;
+}
+
+#browseCategories {
+	padding: 0px 0px 15px 0px;
+	font-weight: bold;
+}
 
 /* Classes */
 
@@ -160,24 +150,40 @@ textarea {
 	position:absolute;
 	top:0px; 
 	left:0px;
-	width: 100%;
+	width: 390px;
+	height: 3px;
+	background-size: 100%;
 }
 
 .nav {
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.35), 0 2px 3px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.75), 0px 5px 6px rgba(0, 0, 0, 0.75);
     clear: both;
     display: block;
     float: left;
-    width: 100%;
+    width: 380px;
 }
 
 .topRow {
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.35), 0 2px 3px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.75), 0px 5px 6px rgba(0, 0, 0, 0.75);
     text-align: center;
     float: left;
-    width: 100%;
+    width: 380px;
+    background: #e6e6e6;
+	
+}
+
+.navImg {
+	padding: 0px 0px 0px 320px;
+}
+
+.navLink {
+	padding: 0px 0px 0px 15px;
+}
+
+.navMenu {
+	background:-webkit-linear-gradient(#ffbb00 0%, #cbcbcb 100%);
 	
 }
 
