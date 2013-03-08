@@ -1,14 +1,13 @@
 //Reyes, Timothy
-//Virtual Frameworks 1302
-//Project Web App Part 4
-//GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4
+//MIU 1303
+//Project Week 2
 
 
 window.addEventListener("DOMContentLoaded", function(){
 
 
 //Global variables
-	var supportTypeList = ["--> Choose Support Type", "Call", "Email", "Online_Chat", "Support_Form"];
+	var supportTypeList = ["--> Choose Support Type", "Call", "Email", "Online_Chat", "Support_Form", "Sales_Inquiry"];
 	var responseBox = "No";
 	var endUserValue;
 	var errorM = element("anyErrors");
@@ -49,7 +48,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Radio Buttons for Contact Type
 	function getEndUserValue(){
-		var contactRadios = document.forms[0].contactType;
+		var contactRadios = document.getElementsByTagName("contactType")
 		for(var i=0; i<contactRadios.length; i++){
 		
 			if(contactRadios[i].checked){
@@ -79,8 +78,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("clearStoredData").style.display = "inline";
 				element("addNewItem").style.display = "inline";
 				element("displayData").style.display = "none";
-				element("h1").style.display = "block";
-				element("h2").style.display = "block";
+				//element("h1").style.display = "block";
+				//element("h2").style.display = "block";
 				element("h3").style.display = "block";
 				break;
 				
@@ -141,7 +140,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			HTMLDiv.align ="left";
 			var newList = document.createElement("ul");
 			HTMLDiv.appendChild(newList);
-			document.body.appendChild(HTMLDiv);
+			jqueryPage = element("supportTicket").children[1];
+			jqueryPage.appendChild(HTMLDiv);
 			element("dataItems").style.display = "block";
 			element("dataItems").style.display = ""
 			for(var i=0, j=localStorage.length; i<j; i++){
@@ -167,7 +167,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i), createLi);	
 		}	
 	};
-	
+
 //Get Image for Support Type
 	function getImg(varImg, makeTabList){
 		var imgLi = document.createElement("li");
@@ -224,8 +224,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		element("email").value = item.email[1];
 		element("phone").value = item.phone[1];
 		element("date").value = item.date[1];
-		
-		var radios = document.forms[0].contactType
+	
+		var radios = document.getElementsByTagName("contactType");
+		console.log(radios);
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "End User" && item.contactType[1] == "End User"){
 			radios[i].setAttribute("checked", "checked");
@@ -352,22 +353,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	};
 	
-	
-	//Search onBlur event
-	var searchField = element("searchButton");
 
-
-	console.log(searchField);
-	searchField.onfocus = function(){
-		if (searchField.value == "Search Tickets"){
-			searchField.value = "";
-		}
-	};
-	searchField.onblur = function() {
-		if (searchField.value == ""){
-			searchField.value = "Search Tickets";
-		}
-	};
 	
 console.log(localStorage);
 
