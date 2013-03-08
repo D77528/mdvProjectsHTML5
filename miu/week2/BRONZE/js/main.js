@@ -45,10 +45,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	dynamicInsert()
 
-
+console.log(document.getElementsByName("contactType"))
 //Radio Buttons for Contact Type
 	function getEndUserValue(){
-		var contactRadios = document.getElementsByTagName("contactType")
+		var contactRadios = document.getElementsByName("contactType")
 		for(var i=0; i<contactRadios.length; i++){
 		
 			if(contactRadios[i].checked){
@@ -225,7 +225,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		element("phone").value = item.phone[1];
 		element("date").value = item.date[1];
 	
-		var radios = document.getElementsByTagName("contactType");
+		var radios = document.getElementsByName("contactType");
 		console.log(radios);
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "End User" && item.contactType[1] == "End User"){
