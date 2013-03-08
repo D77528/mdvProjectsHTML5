@@ -1,0 +1,149 @@
+<!doctype html>
+<! Reyes, Timothy MIU 1303>
+
+<html>
+	<head>
+		<!-- Character Set Meta -->
+		<meta charset="utf-8" />
+		<meta name="description" content="Main Technical Support page for adding new ticket" />
+		<meta name="keywords" content="Compix Media, add new entry, Full Sail University" />
+		<meta name="robots" content="index, follow" />
+		<meta name="HandheldFriendly" content="True"> <!-- geared towards Mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- geared towards Mobile-->
+		<meta name="MobileOptimized" content="320"/> <!-- geared towards Mobile-->
+		<meta http-equiv="cleartype" content="on"> <!-- Mobile IE needs ClearType for smoothing fonts -->
+		<title>Compix Media Technical Support Ticket System</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	
+	
+<body>
+
+	<div data-role="page" id="index" data-add-back-btn="true"><!-- header-->
+		<div data-role="header" data-position="fixed"><!-- header-->
+			<h1>Support Ticket System</h1><!-- header-->
+			<img src="img/banner.png" class="banner" />	<!-- header-->
+		</div><!-- header-->
+
+		<div data-role="content">
+			<table class="topRow">
+				<tr>
+					<td>
+						<img src="img/compix.png" id="compixImage" />
+					</td>
+					<td>
+						<form>
+							<input type="search" name="searchButton" id="searchButton" value="Search" />
+						</form>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<a href="#supportTicket">
+					<img src="img/feature_bg.jpg" id="features" />
+				</a>
+			</p>
+			<div>
+				<p id="browseCategories">Browse Categories:</p>
+				<ul data-role="listview">
+					<li>Waiting for Response</li>
+					<li>Date</li>
+					<li>Name</li>
+					<li>Contact Feelings: low to high</li>
+					<li>Sales Inquiries</li>
+				</ul>
+	
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#info">Info</a></li>
+						<li><a href="#about">About</a></li>
+					</ul>	
+			</div>
+		</div>
+	</div><!-- page -->
+	
+	
+	<div data-role="page" id="supportTicket" data-add-back-btn="true"><!-- header-->
+		<div data-role="header" data-position="fixed"><!-- header-->
+			<h1>Technical Support Tickets</h1><!-- header-->
+			<img src="img/banner.png" class="banner" />	<!-- header-->
+		</div><!-- header-->
+	
+	
+		<div data-role="content">
+			<form action="#" method="post" id="onlyForm">
+				<fieldset class="fieldset">
+					<legend>Contact Info</legend>
+					<ul>
+						<li><label for="firstn">First Name:</label><input type="text" id="firstn" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
+						<li><label for="lastn">Last Name:</label><input type="text" id="lastn" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
+						<li><label for="email">Email:</label><input type="email" id="email" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
+						<li><label for="phone">Phone Number:</label><input type="text" id="phone" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
+						<li>
+							<form>
+								<label for="date">Enter Date:</label>
+								<input type="date" data-clear-btn="false" value="" id="date" name="date" data-clear-btn="true" data-mini="true" />
+							</form>
+						</li>
+						<li>Contact Type:
+							<ul>
+								<li><input type="radio" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label></li>
+								<li><input type="radio" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label></li>
+							</ul>	
+						</li>
+						<li>
+								<label for="contactFeelings">Contact Feelings: Happy / Upset</label>
+								<input type="range" data-mini="true" name="slider" id="contactFeelings" value="50" min="0" max="100" />
+						</li>
+					</ul>
+				</fieldset>
+				<fieldset class="fieldset">
+					<legend>Support Description</legend>
+					<ul>
+						<li id="select">
+							<label for="supportType" class="select">Support Type:</label>
+						</li>
+						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" data-mini="true" /><label for="awaitingResponse">Is contact waiting for response?</label>
+						<li><label for="comments">Support Overview:</label><textarea cols="40" rows="8" name="comments" id="comments" placeholder="Placeholder" data-mini="true"></textarea></li>
+					</ul>
+				</fieldset>
+					<ul id="anyErrors"></ul>
+					<div data-role="button" id="button">
+						<input type="button" name:"SUBMIT" value="SUBMIT" data-mini="true"/>
+					</div>
+			</form>
+			<ul>
+				<li>
+					<a href="#" title="Display Data" id="displayData">Display Data</a>
+					<a href="supportTicket.html" id="addNewItem" style="display:none;">Add New Item</a>
+					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
+					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
+				</li>		
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#info">Info</a></li>
+						<li><a href="#about">About</a></li>
+					</ul>
+						
+			</div>
+		</div>
+	</div><!-- page -->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+
+</html>
