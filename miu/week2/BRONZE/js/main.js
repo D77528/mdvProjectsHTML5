@@ -432,7 +432,8 @@ $(browseSales).click(function() {
 })	
 
 
-//Search Date
+//Search Date  
+/*
 $(browseDate).click(function() {
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
@@ -444,19 +445,25 @@ $(browseDate).click(function() {
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
 			if(obj.date[1] != ""){ //category is looking for the value of supportType, not anything else
-				var dates = obj.date[1] 
-				console.log(dates);
-//				var dateDescending = function (date1, date2) {
-
-				  //if (date1 > date2) return -1;
-				  //if (date1 < date2) return 1;
-				  //return 0;
-				 // };
-				//  dates.sort(dateDescending)
-				 
+				
+				var dates = obj.date[1];
+				var objArray = JSON.stringify(dates)
+				console.log(objArray)
+				
+				var date_sort_desc = function (date1, date2) {
+  // This is a comparison function that will result in dates being sorted in
+  // DESCENDING order.
+  if (date1 > date2) return -1;
+  if (date1 < date2) return 1;
+  return 0;
+};
+				objArray.sort(date_sort_desc);
+			//	for (var i = 0; i < dates.length; i++) {
+			//	  console.log(i + ': ' + dates[i] + '<br>');
+			//	}
 								
-								
-								
+							
+							/*	
 				var makeli = document.createElement("li");
 				var makeSubList = document.createElement("ul");
 				makeli.appendChild(makeSubList);
@@ -479,14 +486,9 @@ $(browseDate).click(function() {
 		}
 
 })	
-function getSearch(){
-	var category = element("supportType").value;
-	var term = element("searchField").value;
-
-
-//Search by Category Only  
-
-	if(category != "--> Choose Support Type" && term === ""){
+*/
+//Search Contact Feelings: low to high
+$(browseFeelings).click(function() {
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -496,7 +498,7 @@ function getSearch(){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			if(category === obj.supportType[1]){ //category is looking for the value of supportType, not anything else
+			if(obj.contactFeelings[1] != ""){ //category is looking for the value of supportType, not anything else
 				var makeli = document.createElement("li");
 				var makeSubList = document.createElement("ul");
 				makeli.appendChild(makeSubList);
@@ -506,60 +508,98 @@ function getSearch(){
 					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
 					makeSubList.appendChild(makeSubli);
 					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+
+				
 				}
-			}
-			
+
+
+
+
+				}
 		}
+
+})	
+
+
+//Search Name
+$(browseName).click(function() {
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
 		
-	}
-
-
-//Search by Term only
-	if(term != ""){
 		for (i=0, j=localStorage.length; i<j; i++){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			var object = JSON.parse(value);
-			for(n in object){
-				if(term === object[n][1]){
-					for (q in object){
-				console.log(object[q][1]);
-				};
-				var HTMLDiv = document.createElement("div");			//HTMLDiv creates a <div></div>
-				HTMLDiv.setAttribute("id", "dataItems", "align");		//HTMLDiv includes <div id="dataItems" align=""></div>
-				HTMLDiv.align ="left";									//HTMLDiv includes left for <div align="left"></div>
-				var newList = document.createElement("ul");				//newList creates <ul></ul>
-				HTMLDiv.appendChild(newList);							//HTMLDiv append so <div><ul></ul></div>
-				jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-				jqueryPage.appendChild(HTMLDiv);						//jqueryPage append so <div><div></div></div>
-				element("dataItems").style.display = "block";			//CSS display
-				element("dataItems").style.display = ""					//CSS display
-				for(var i=0, j=object[n].length; i<j; i++){				//
+			var obj = JSON.parse(value);
+			if(obj.firstn[1] && lastn[1] != ""){ //category is looking for the value of supportType, not anything else
+				var makeli = document.createElement("li");
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				makeList.appendChild(makeli);
+				for (q in obj){
+					var makeSubli = document.createElement("li");
+					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
+					makeSubList.appendChild(makeSubli);
+					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+
+				
+				}
+
+
+
+
+				}
+		}
+
+})	
+
+
+
+
+
+
+
+
+//Search entry
+$(searchBtn).click(function() {
+var term = element("searchField").value;
+	if(term != ""){
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			for(n in obj){
+				if(term === obj[n][1]){
+					var HTMLDiv = document.createElement("div");			//HTMLDiv creates a <div></div>
+					HTMLDiv.setAttribute("id", "dataItems");		//HTMLDiv includes <div id="dataItems" align=""></di
+					var newList = document.createElement("ul");				//newList creates <ul></ul>
+					HTMLDiv.appendChild(newList);							//HTMLDiv append so <div><ul></ul></div>
+					jqueryPage = element("searchResults").children[1];		
+					jqueryPage.appendChild(HTMLDiv);
 					var li = document.createElement("li");				// li creates <li></li>
 					var createLi = document.createElement("li");		// createLi creates <li></li>
 					newList.appendChild(li);							// newList append so <ul><li></li></ul>
 					var makeTabList = document.createElement("ul");		//makeTabList 
-					makeTabList.style.border="2px solid black";			//CSS display
-					makeTabList.style.padding="10px";					//CSS display
-					makeTabList.width-"320px";							//CSS display
-					getImg(object.supportType[1], makeTabList);			//getImg function matches supportType with list
-					li.appendChild(makeTabList);						// li append so <ul><li>
-					for(var v in object){								// loop var = v into parsed Local Storage
+					li.appendChild(makeTabList);						// li append so <ul><li>						//jqueryPage append so <div><div></div></div>
+						console.log(obj[n][1])
+					for (q in obj){
 						var makeTabli = document.createElement("li");	//makes additional li
 						makeTabList.appendChild(makeTabli);				//li appends so <ul><li>
-						var text = object[v][0] + object[v][1];			// text is parsed Local Storage v 0 and 1
+						var text = obj[q][0] + obj[q][1];			// text is parsed Local Storage v 0 and 1
 						makeTabli.innerHTML = text;						// li's innerHTML is the Local Storage v 0 and 1
 						makeTabList.appendChild(createLi);				// ul append so <ul><li>
-					}					//out of nested loop
-				makeItemLinks(localStorage.key(i), createLi);			// makeItemLinks are links for edit and delete button
-				}
-
+						console.log(obj[q][1])
 				}
 			}
-			
 		}
-	}
-}	
+	}}
+	
+	})	
 
 
 //Links: displayData, clearData & Submit Button	
