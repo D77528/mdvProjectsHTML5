@@ -22,11 +22,11 @@
 	
 <body>
 
-	<div data-role="page" id="index" data-add-back-btn="true"><!-- header-->
+	<div data-role="page" id="home" data-add-back-btn="true"><!-- pageStart-->
 		<div data-role="header" data-position="fixed"><!-- header-->
-			<h1>Support Ticket System</h1><!-- header-->
-			<img src="img/banner.png" class="banner" />	<!-- header-->
-		</div><!-- header-->
+			<h1>Support Ticket System</h1>
+			<img src="img/banner.png" class="banner" />
+		</div>
 
 		<div data-role="content">
 			<table class="topRow">
@@ -35,9 +35,12 @@
 						<img src="img/compix.png" id="compixImage" />
 					</td>
 					<td>
-						<form>
-							<input type="search" name="searchButton" id="searchButton" value="Search" />
-						</form>
+						
+						<input type="search" name="search" data-inline="true" id="searchField" value="" onfocus="this.value='';">
+						<a href="#searchResults">
+							<input type="button" value="Search" data-inline="true" id="searchBtn">
+						</a>
+
 					</td>
 				</tr>
 			</table>
@@ -48,13 +51,64 @@
 			</p>
 			<div>
 				<p id="browseCategories">Browse Categories:</p>
-				<ul data-role="listview">
-					<li>Waiting for Response</li>
-					<li>Date</li>
-					<li>Name</li>
-					<li>Contact Feelings: low to high</li>
-					<li>Sales Inquiries</li>
-				</ul>
+					<ul class="ui-listview" data-role="listview">
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text" >
+									<a class="ui-link-inherit" href="#searchResults" id="browseResponse">Waiting for Response</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseDate">Date-descending</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseCalls">Calls</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseEmails">Emails</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseOnlineChats">Online Chats</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseSupportForm">Support Form</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
+
+						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+							<div class="ui-btn-inner ui-li">
+								<div class="ui-btn-text">
+									<a class="ui-link-inherit" href="#searchResults" id="browseSales">Sales Inquiry</a>
+								</div>
+								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+							</div>
+						</li>
 	
 			</div>
 		</div>
@@ -67,14 +121,14 @@
 					</ul>	
 			</div>
 		</div>
-	</div><!-- page -->
+	</div><!-- pageEnd -->
 	
 	
-	<div data-role="page" id="supportTicket" data-add-back-btn="true"><!-- header-->
+	<div data-role="page" id="supportTicket" data-add-back-btn="true"><!-- pageStart-->
 		<div data-role="header" data-position="fixed"><!-- header-->
-			<h1>Technical Support Tickets</h1><!-- header-->
-			<img src="img/banner.png" class="banner" />	<!-- header-->
-		</div><!-- header-->
+			<h1>Technical Support Tickets</h1>
+			<img src="img/banner.png" class="banner" />
+		</div>
 	
 	
 		<div data-role="content">
@@ -82,20 +136,18 @@
 				<fieldset class="fieldset">
 					<legend>Contact Info</legend>
 					<ul>
-						<li><label for="firstn">First Name:</label><input type="text" id="firstn" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
-						<li><label for="lastn">Last Name:</label><input type="text" id="lastn" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
-						<li><label for="email">Email:</label><input type="email" id="email" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
-						<li><label for="phone">Phone Number:</label><input type="text" id="phone" data-clear-btn="true" placeholder="Placeholder" data-mini="true" /></li>
+						<li><label for="firstn">First Name:</label><input type="text" id="firstn" data-clear-btn="true" placeholder="John" data-mini="true" /></li>
+						<li><label for="lastn">Last Name:</label><input type="text" id="lastn" data-clear-btn="true" placeholder="Smith" data-mini="true" /></li>
+						<li><label for="email">Email:</label><input type="email" id="email" data-clear-btn="true" placeholder="aaa@bbb.com" data-mini="true" /></li>
+						<li><label for="phone">Phone Number:</label><input type="text" id="phone" data-clear-btn="true" placeholder="(949)111-2222" data-mini="true" /></li>
 						<li>
-							<form>
 								<label for="date">Enter Date:</label>
 								<input type="date" data-clear-btn="false" value="" id="date" name="date" data-clear-btn="true" data-mini="true" />
-							</form>
 						</li>
 						<li>Contact Type:
 							<ul>
-								<li><input type="radio" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label></li>
-								<li><input type="radio" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label></li>
+								<li><input type="radio" checked="undefined" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label></li>
+								<li><input type="radio" checked="undefined" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label></li>
 							</ul>	
 						</li>
 						<li>
@@ -111,7 +163,7 @@
 							<label for="supportType" class="select">Support Type:</label>
 						</li>
 						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" data-mini="true" /><label for="awaitingResponse">Is contact waiting for response?</label>
-						<li><label for="comments">Support Overview:</label><textarea cols="40" rows="8" name="comments" id="comments" placeholder="Placeholder" data-mini="true"></textarea></li>
+						<li><label for="comments">Support Overview:</label><textarea cols="40" rows="8" name="comments" id="comments" placeholder="Technical Issues" data-mini="true"></textarea></li>
 					</ul>
 				</fieldset>
 					<ul id="anyErrors"></ul>
@@ -138,7 +190,100 @@
 						
 			</div>
 		</div>
-	</div><!-- page -->
+	</div><!-- pageEnd -->
+	
+	<div data-role="page" id="searchResults" data-add-back-btn="true"><!-- pageStart -->
+		<div data-role="header" data-position="fixed">
+			<h1>Search Results</h1>
+			
+		<!-- header-->
+		
+		</div>
+		<div data-role="content">
+		
+		<!-- content-->
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+		
+		<!-- footer -->
+		
+			<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#info">Info</a></li>
+						<li><a href="#about">About</a></li>
+					</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+	
+		<div data-role="page" id="info" data-add-back-btn="true"><!-- pageStart -->
+			<div data-role="header" data-position="fixed">
+				<h1>Information</h1>
+				
+			<!-- header-->
+			
+			</div>
+			<div data-role="content">
+				<ul>
+					<li>
+						<h2>GitHub Link</h2>
+						<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week2">Link to Repo</a>
+					</li>
+					<li>
+						<h2>Gold and Bronze Links</h2>
+						<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/GOLD/index.html">Gold App</a><br />
+						<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/BRONZE/index.html">Bronze App</a>
+					</li>
+			
+				</ul>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+			
+			<!-- footer -->
+			
+				<div data-role="navbar">
+						<ul>
+							<li><a href="#home">Home</a></li>
+							<li><a href="#info">Info</a></li>
+							<li><a href="#about">About</a></li>
+						</ul>	
+				</div>
+			</div>
+		</div><!-- pageEnd -->
+	
+		<div data-role="page" id="about" data-add-back-btn="true"><!-- pageStart -->
+			<div data-role="header" data-position="fixed">
+				<h1>About Us</h1>
+				
+			<!-- header-->
+			
+			</div>
+			<div data-role="content">
+			
+			<!-- content-->
+			
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+			
+			<!-- footer -->
+			
+				<div data-role="navbar">
+						<ul>
+							<li><a href="#home">Home</a></li>
+							<li><a href="#info">Info</a></li>
+							<li><a href="#about">About</a></li>
+						</ul>	
+				</div>
+			</div>
+		</div><!-- pageEnd -->
+	
+	
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/json.js"></script>
