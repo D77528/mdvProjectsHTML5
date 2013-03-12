@@ -44,7 +44,20 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	dynamicInsert()
-
+	
+	/*
+	function dynamicIdBack(){
+		var idBack = document.getElementsByClassName("ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-a");
+			idBack.setAttribute("id", "idBack")
+		//var	idBackID = elements("idBack")
+		
+		//if(idBackID.click === "true"){
+				// location.reload()
+			// }
+		
+	}
+	dynamicIdBack()
+*/
 
 //Radio Buttons for Contact Type
 	function getEndUserValue(){
@@ -349,16 +362,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 	
-	};
-
-	
-//Search functionality
-
-
+	};		
 
 
 //Search Response
-$(browseResponse).click(function() {
+	function displayResponse() {
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -382,21 +390,183 @@ $(browseResponse).click(function() {
 						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
 						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
 
+				}
+			}
+		}
+	}	
+
+
+//Search Calls
+	 function displayCalls() {
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			if(obj.supportType[1] === "Call"){ //category is looking for the value of supportType, not anything else
+				var makeli = document.createElement("li");
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				makeList.appendChild(makeli);
+				for (q in obj){
+					var makeSubli = document.createElement("li");
+					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
+					makeSubList.appendChild(makeSubli);
+					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+
+				}
+			}
+		}
+	}	
+
+
+
+
+//Search Emails
+	 function displayEmails() {
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			if(obj.supportType[1] === "Email"){ //category is looking for the value of supportType, not anything else
+				var makeli = document.createElement("li");
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				makeList.appendChild(makeli);
+				for (q in obj){
+					var makeSubli = document.createElement("li");
+					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
+					makeSubList.appendChild(makeSubli);
+					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+
+				}
+			}
+		}
+	}	
+
+
+//Search Online Chats
+	function displayOnlineChats() {
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			if(obj.supportType[1] === "Online_Chat"){ //category is looking for the value of supportType, not anything else
+				var makeli = document.createElement("li");
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				makeList.appendChild(makeli);
+				for (q in obj){
+					var makeSubli = document.createElement("li");
+					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
+					makeSubList.appendChild(makeSubli);
+					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+
 				
 				}
-
-
-
-
-				}
+			}
 		}
-
-})	
-
+	}	
 
 
-//Search Sales
-$(browseSales).click(function() {
+//Search Support Form
+	function displaySupportForm() {
+		var makeDiv = document.createElement("div");
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement("ul");
+		makeDiv.appendChild(makeList);
+		
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			if(obj.supportType[1] === "Support_Form"){ //category is looking for the value of supportType, not anything else
+				var makeli = document.createElement("li");
+				var makeSubList = document.createElement("ul");
+				makeli.appendChild(makeSubList);
+				makeList.appendChild(makeli);
+				for (q in obj){
+					var makeSubli = document.createElement("li");
+					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
+					makeSubList.appendChild(makeSubli);
+					console.log(obj[q][0] + " " + obj[q][1])
+						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
+						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
+				
+				}
+			}
+		}
+	}	
+	
+//Search entry
+	function displaySearch() {
+		element("searchField").setAttribute("value", "");
+		if (!element("dataItems")) {
+		
+		var term = element("searchField").value;
+			if(term != ""){
+				for (i=0, j=localStorage.length; i<j; i++){
+					var key = localStorage.key(i);		
+					var value = localStorage.getItem(key);
+					var obj = JSON.parse(value);
+					for(n in obj){
+						if(term === obj[n][1]){
+							var HTMLDiv = document.createElement("div");			//HTMLDiv creates a <div></div>
+							HTMLDiv.setAttribute("id", "dataItems");		//HTMLDiv includes <div id="dataItems" align=""></di
+							var newList = document.createElement("ul");				//newList creates <ul></ul>
+							HTMLDiv.appendChild(newList);							//HTMLDiv append so <div><ul></ul></div>
+							jqueryPage = element("searchResults").children[1];		
+							jqueryPage.appendChild(HTMLDiv);
+							var li = document.createElement("li");				// li creates <li></li>
+							var createLi = document.createElement("li");		// createLi creates <li></li>
+							newList.appendChild(li);							// newList append so <ul><li></li></ul>
+							var makeTabList = document.createElement("ul");		//makeTabList 
+							li.appendChild(makeTabList);						// li append so <ul><li>						
+								console.log(obj[n][1])
+							for (q in obj){
+								var makeTabli = document.createElement("li");	//makes additional li
+								makeTabList.appendChild(makeTabli);				//li appends so <ul><li>
+								var text = obj[q][0] + obj[q][1];			// text is parsed Local Storage v 0 and 1
+								makeTabli.innerHTML = text;						// li's innerHTML is the Local Storage v 0 and 1
+								makeTabList.appendChild(createLi);				// ul append so <ul><li>
+								console.log(obj[q][1])
+								
+						
+							}
+						}
+					}
+				}
+
+			}		
+		} //if statement
+		else{
+			window.location.reload();
+			
+		}
+	}
+	
+//Search Sales Inquiry
+	function displaySalesInquiry() {
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -422,19 +592,15 @@ $(browseSales).click(function() {
 
 				
 				}
-
-
-
-
-				}
+			}
 		}
-
-})	
+	}	
 
 
 //Search Date  
-/*
+
 $(browseDate).click(function() {
+
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -444,26 +610,14 @@ $(browseDate).click(function() {
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			
+			var dates = [obj.date[1]]
+			//var DatesArray = [].concat(arrayDate); 
+			
 			if(obj.date[1] != ""){ //category is looking for the value of supportType, not anything else
 				
-				var dates = obj.date[1];
-				var objArray = JSON.stringify(dates)
-				console.log(objArray)
-				
-				var date_sort_desc = function (date1, date2) {
-  // This is a comparison function that will result in dates being sorted in
-  // DESCENDING order.
-  if (date1 > date2) return -1;
-  if (date1 < date2) return 1;
-  return 0;
-};
-				objArray.sort(date_sort_desc);
-			//	for (var i = 0; i < dates.length; i++) {
-			//	  console.log(i + ': ' + dates[i] + '<br>');
-			//	}
-								
-							
-							/*	
+				//objArray.sort(date_sort_desc);
+				console.log(dates);						
 				var makeli = document.createElement("li");
 				var makeSubList = document.createElement("ul");
 				makeli.appendChild(makeSubList);
@@ -472,7 +626,7 @@ $(browseDate).click(function() {
 					var makeSubli = document.createElement("li");
 					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
 					makeSubList.appendChild(makeSubli);
-	//				console.log(obj[q][0] + " " + obj[q][1])
+				//	console.log(obj[q][0] + " " + obj[q][1])
 						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
 						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
 
@@ -483,123 +637,37 @@ $(browseDate).click(function() {
 
 
 				}
+				
 		}
-
-})	
-*/
-//Search Contact Feelings: low to high
-$(browseFeelings).click(function() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
 		
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			if(obj.contactFeelings[1] != ""){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				for (q in obj){
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
-				
-				}
-
-
-
-
-				}
-		}
-
 })	
 
 
-//Search Name
-$(browseName).click(function() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			if(obj.firstn[1] && lastn[1] != ""){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				for (q in obj){
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
-				
-				}
-
-
-
-
-				}
-		}
-
-})	
-
-
-
-
-
-
-
-
-//Search entry
-$(searchBtn).click(function() {
-var term = element("searchField").value;
-	if(term != ""){
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			for(n in obj){
-				if(term === obj[n][1]){
-					var HTMLDiv = document.createElement("div");			//HTMLDiv creates a <div></div>
-					HTMLDiv.setAttribute("id", "dataItems");		//HTMLDiv includes <div id="dataItems" align=""></di
-					var newList = document.createElement("ul");				//newList creates <ul></ul>
-					HTMLDiv.appendChild(newList);							//HTMLDiv append so <div><ul></ul></div>
-					jqueryPage = element("searchResults").children[1];		
-					jqueryPage.appendChild(HTMLDiv);
-					var li = document.createElement("li");				// li creates <li></li>
-					var createLi = document.createElement("li");		// createLi creates <li></li>
-					newList.appendChild(li);							// newList append so <ul><li></li></ul>
-					var makeTabList = document.createElement("ul");		//makeTabList 
-					li.appendChild(makeTabList);						// li append so <ul><li>						//jqueryPage append so <div><div></div></div>
-						console.log(obj[n][1])
-					for (q in obj){
-						var makeTabli = document.createElement("li");	//makes additional li
-						makeTabList.appendChild(makeTabli);				//li appends so <ul><li>
-						var text = obj[q][0] + obj[q][1];			// text is parsed Local Storage v 0 and 1
-						makeTabli.innerHTML = text;						// li's innerHTML is the Local Storage v 0 and 1
-						makeTabList.appendChild(createLi);				// ul append so <ul><li>
-						console.log(obj[q][1])
-				}
-			}
-		}
-	}}
+//Links for Browse Categories
+	var browseResponse = element("browseResponse");
+	browseResponse.addEventListener("click", displayResponse);
 	
-	})	
+	var browseCalls = element("browseCalls");
+	browseCalls.addEventListener("click", displayCalls);
+	
+	var browseEmails = element("browseEmails");
+	browseEmails.addEventListener("click", displayEmails);
+	
+	var browseOnlineChats = element("browseOnlineChats");
+	browseOnlineChats.addEventListener("click", displayOnlineChats);
+	
+	var browseSupportForm = element("browseSupportForm");
+	browseSupportForm.addEventListener("click", displaySupportForm);
+	
+	var browseSalesInquiry = element("browseSalesInquiry");
+	browseSales.addEventListener("click", displaySalesInquiry);
+	
+	var browseSearch = element("searchBtn");
+	searchBtn.addEventListener("click", displaySearch);
+	
+	//var browseDate = element("browseDate");
+	//browseDate.addEventListener("click", dateSort)
+	
 
 
 //Links: displayData, clearData & Submit Button	
