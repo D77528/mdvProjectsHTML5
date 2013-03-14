@@ -1,5 +1,5 @@
 <!doctype html>
-<! Reyes, Timothy MIU 1303>
+<!-- Reyes, Timothy MIU 1303 -->
 
 <html>
 	<head>
@@ -24,7 +24,7 @@
 
 	<div data-role="page" id="home" data-add-back-btn="true"><!-- pageStart-->
 		<div data-role="header" data-position="fixed"><!-- header-->
-			<h1>Support Ticket System</h1>
+			<h1>Ticket System</h1>
 			<img src="img/banner.png" class="banner" />
 		</div>
 
@@ -32,15 +32,17 @@
 			<table class="topRow">
 				<tr>
 					<td>
-						<img src="img/compix.png" id="compixImage" />
+						<a href="http://www.compix.tv" target="_blank">
+							<img src="img/compix.png" data-inline="true" />
+						</a>
 					</td>
 					<td>
-						
-						<input type="search" name="search" data-inline="true" id="searchField" value="" onfocus="this.value='';">
+						<input type="search" name="search" data-inline="true" id="searchField" value="" data-mini="true">
+					</td>
+					<td>
 						<a href="#searchResults">
-							<input type="button" value="Search" data-inline="true" id="searchBtn">
+							<input type="button" value="Search" data-inline="true" id="searchBtn" data-mini="true">
 						</a>
-
 					</td>
 				</tr>
 			</table>
@@ -49,75 +51,66 @@
 					<img src="img/feature_bg.jpg" id="features" />
 				</a>
 			</p>
-			<div>
-				<p id="browseCategories">Browse Categories:</p>
-					<ul class="ui-listview" data-role="listview">
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text" >
-									<a class="ui-link-inherit" href="#searchResults" id="browseResponse">Waiting for Response</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseDate">Date-descending</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseCalls">Calls</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseEmails">Emails</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseOnlineChats">Online Chats</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseSupportForm">Support Form</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-
-						<li datacorners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
-							<div class="ui-btn-inner ui-li">
-								<div class="ui-btn-text">
-									<a class="ui-link-inherit" href="#searchResults" id="browseSales">Sales Inquiry</a>
-								</div>
-								<span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
-							</div>
-						</li>
-	
+			<div>	
+				<ul data-role="listview" data-insert="true" data-divider-theme="d">
+					<li data-role="list-divider">Urgent Customers:</li>
+					<li>
+						<a href="#searchResults" id="browseResponse">
+							<h2>Waiting for Response</h2>
+						</a>
+					</li>
+					<li data-role="list-divider">Browse Categories:</li>
+					
+				</ul>
+				<div data-role="fieldcontain">
+					<div class="ui-grid-b">
+						<div class="ui-block-a">
+							<a class="ui-link-inherit" href="#searchResults" id="browseCalls">
+								<img src="img/lrgCall.png" />
+								<h3>Calls</h3>
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a class="ui-link-inherit" href="#searchResults" id="browseEmails">
+								<img src="img/lrgEmail.png" />
+								<h3>Emails</h3>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a class="ui-link-inherit" href="#searchResults" id="browseOnlineChats">
+								<img src="img/lrgOnline_Chat.png" />
+								<h3>Chats</h3>
+							</a>
+						</div>
+						<div class="ui-block-a">
+							<a class="ui-link-inherit" href="#searchResults" id="browseSupportForm">
+								<img src="img/lrgSupport_Form.png" />
+								<h3>Form</h3>	
+							</a>
+						</div>
+						<div class="ui-block-b">
+							<a class="ui-link-inherit" href="#searchResults" id="browseSales">
+								<img src="img/lrgSales_Inquiry.png" />
+								<h3>Sales</h3>
+							</a>
+						</div>
+						<div class="ui-block-c">
+							<a class="ui-link-inherit" href="http://www.compix.tv">
+								<img src="img/lrgcompix.png" />
+								<h3>Compix</h3>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 					<ul>
 						<li><a href="#home">Home</a></li>
+						<li><a href="#supportTicket">Add Ticket</a></li>
 						<li><a href="#info">Info</a></li>
-						<li><a href="#about">About</a></li>
+						
 					</ul>	
 			</div>
 		</div>
@@ -174,7 +167,7 @@
 			<ul>
 				<li>
 					<a href="#" title="Display Data" id="displayData">Display Data</a>
-					<a href="supportTicket.html" id="addNewItem" style="display:none;">Add New Item</a>
+					<a href="#supportTicket" id="addNewItem" style="display:none;">Add New Item</a>
 					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
 					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
 				</li>		
@@ -184,8 +177,9 @@
 			<div data-role="navbar">
 					<ul>
 						<li><a href="#home">Home</a></li>
+						<li><a href="#supportTicket">Add Ticket</a></li>
 						<li><a href="#info">Info</a></li>
-						<li><a href="#about">About</a></li>
+						
 					</ul>
 						
 			</div>
@@ -212,33 +206,89 @@
 			<div data-role="navbar">
 					<ul>
 						<li><a href="#home">Home</a></li>
+						<li><a href="#supportTicket">Add Ticket</a></li>
 						<li><a href="#info">Info</a></li>
-						<li><a href="#about">About</a></li>
+						
 					</ul>	
 			</div>
 		</div>
 	</div><!-- pageEnd -->
 	
 	
-		<div data-role="page" id="info" data-add-back-btn="true"><!-- pageStart -->
+	<div data-role="page" id="info" data-add-back-btn="true"><!-- pageStart -->
+		<div data-role="header" data-position="fixed">
+			<h1>Information</h1>
+
+		</div>
+		<div data-role="content" class="ui-content" role="main">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					<li>
+						<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week2" >
+							<h3>GitHub Link</h3>
+							<p>Go to Github Repo at github.com</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#githubLinks">
+							<h3>Gold and Bronze Links</h3>
+							<p> Go to the Github links for Gold & Bronze</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#searchResults" class="ui-link-inherit" id="browseDate">
+							<h3>NewsFeed</h3>
+							<p>View Recent Tickets</p>
+						</a>	
+					</li>
+					
+					<li>
+						<a href="#aboutTimothy" class="ui-link-inherit">
+							<h3>About Timothy Reyes</h3>
+							<p>Learn about the author of this app</p>
+						</a>	
+					</li>		
+				</li>	
+			</ul>	
+		</div>					
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#supportTicket">Add Ticket</a></li>
+					<li><a href="#info">Info</a></li>
+					
+				</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+		
+		<div data-role="page" id="githubLinks" data-add-back-btn="true"><!-- pageStart -->
 			<div data-role="header" data-position="fixed">
-				<h1>Information</h1>
+				<h1>Github Links</h1>
 				
 			<!-- header-->
 			
 			</div>
 			<div data-role="content">
-				<ul>
-					<li>
-						<h2>GitHub Link</h2>
-						<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week2">Link to Repo</a>
+				<ul data-role="listview">
+					<li data-role="list-divider">
+						<li>
+							<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/GOLD/index.html">
+								<h3>Gold App</h3>
+								<p> Go to the Gold App</p>
+							</a>
+						</li>
+						<li>
+							<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/BRONZE/index.html">
+								<h3>Bronze App</h3>
+								<p> Go to the Bronze App</p>
+							</a>
+						</li>
 					</li>
-					<li>
-						<h2>Gold and Bronze Links</h2>
-						<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/GOLD/index.html">Gold App</a><br />
-						<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/BRONZE/index.html">Bronze App</a>
-					</li>
-			
 				</ul>
 			</div>
 			
@@ -249,24 +299,31 @@
 				<div data-role="navbar">
 						<ul>
 							<li><a href="#home">Home</a></li>
+							<li><a href="#supportTicket">Add Ticket</a></li>
 							<li><a href="#info">Info</a></li>
-							<li><a href="#about">About</a></li>
 						</ul>	
 				</div>
 			</div>
 		</div><!-- pageEnd -->
-	
-		<div data-role="page" id="about" data-add-back-btn="true"><!-- pageStart -->
+
+		
+		<div data-role="page" id="aboutTimothy" data-add-back-btn="true"><!-- pageStart -->
 			<div data-role="header" data-position="fixed">
-				<h1>About Us</h1>
+				<h1>About Timothy Reyes</h1>
 				
 			<!-- header-->
 			
 			</div>
 			<div data-role="content">
-			
-			<!-- content-->
-			
+				<ul>
+						<li>
+							<h3>About Timothy Reyes</h3>
+							<p>I had visited my grandmothers house in Chicago some time ago.  While there she had enlightened me with stories of trials and tribulations of my grandfathers occupation as a computer technician back in the 1970's or so.
+My grandfather had always been a tech savvy guy, but I never knew where it all began.  I now know why I am so eager to learn the latest that technology has to offer.
+ 
+For the past 10 or so years I have worked at my father-in-laws company, Compix Media, Inc.  In a nutshell, Compix Media creates broadcast graphic systems for video overlays, like when watching the News or Sports channel.  Our main market sectors are education, sports, government, and broadcast.  There, I have worked in technical support, sales, IT, marketing, and graphic/web design.  My main focuses have been towards technical support.  Although I was self taught at all levels, I built a pretty solid foundation of who I was, and what I want to become.</p>
+						</li>
+				</ul>
 			</div>
 			
 			<div data-role="footer" data-position="fixed">
@@ -276,13 +333,40 @@
 				<div data-role="navbar">
 						<ul>
 							<li><a href="#home">Home</a></li>
+							<li><a href="#supportTicket">Add Ticket</a></li>
 							<li><a href="#info">Info</a></li>
-							<li><a href="#about">About</a></li>
 						</ul>	
 				</div>
 			</div>
 		</div><!-- pageEnd -->
-	
+		
+			<div data-role="page" id="drilldown" data-add-back-btn="true"><!-- pageStart -->
+				<div data-role="header" data-position="fixed">
+					<h1>Search DrillDown</h1>
+					
+				<!-- header-->
+				
+				</div>
+				<div data-role="content" id="drilldownContent">
+				
+				<!-- content-->
+				
+				</div>
+				
+				<div data-role="footer" data-position="fixed">
+				
+				<!-- footer -->
+				
+					<div data-role="navbar">
+							<ul>
+								<li><a href="#home">Home</a></li>
+								<li><a href="#supportTicket">Add Ticket</a></li>
+								<li><a href="#info">Info</a></li>
+							</ul>	
+					</div>
+				</div>
+			</div><!-- pageEnd -->
+
 	
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>

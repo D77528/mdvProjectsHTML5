@@ -36,6 +36,12 @@ input[type="range"]{
 	width: 100%;
 }
 
+#link {
+	color: #3b95cf;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 /* Classes */
 
 
@@ -65,5 +71,20 @@ input[type="range"]{
 	padding: 0px 15px 0px 0px;
 }
 
+.ui-grid-b {
+	padding: 15px;
+}
+
+.ui-block-a {
+
+}
+
+.ui-block-b {
+
+}
+
+.ui-block-c {
+	
+}
 
 

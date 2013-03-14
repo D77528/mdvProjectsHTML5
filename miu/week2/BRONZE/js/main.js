@@ -45,19 +45,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	dynamicInsert()
 	
-	/*
-	function dynamicIdBack(){
-		var idBack = document.getElementsByClassName("ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-a");
-			idBack.setAttribute("id", "idBack")
-		//var	idBackID = elements("idBack")
-		
-		//if(idBackID.click === "true"){
-				// location.reload()
-			// }
-		
-	}
-	dynamicIdBack()
-*/
 
 //Radio Buttons for Contact Type
 	function getEndUserValue(){
@@ -183,11 +170,13 @@ window.addEventListener("DOMContentLoaded", function(){
 					makeTabli.innerHTML = text;						// li's innerHTML is the Local Storage v 0 and 1
 					
 					makeTabList.appendChild(createLi);				// ul append so <ul><li>
-				console.log(makeTabli)	}
+					}
 																//out of nested loop
 			makeItemLinks(localStorage.key(i), createLi);			// makeItemLinks are links for edit and delete button
 		}	
 	};
+	
+	
 
 //Get Image for Support Type
 	function getImg(varImg, makeTabList){
@@ -206,6 +195,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		for(var n in jsonObjects){
 			var id	= Math.floor(Math.random()*293842);
 			localStorage.setItem(id, JSON.stringify(jsonObjects[n]));
+			
 		}
 	};
 
@@ -377,199 +367,301 @@ window.addEventListener("DOMContentLoaded", function(){
 		//this.value='';
 	};
 
-	
+			
 
 //Search Response
-	function displayResponse() {		
+	function displayResponse() {			
 	
 		for (i=0, j=localStorage.length; i<j; i++){
 			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
+
 			for(n in obj){
 				if(obj.response[1] === "Yes"){
-							var HTMLDiv = document.createElement("div");
-							HTMLDiv.setAttribute("id", "dataItems");
-							HTMLDiv.setAttribute("data-role", "collapsible");
-							HTMLDiv.setAttribute("data-collapsed", "true");
-							var createH3 = document.createElement("h3");
-							var createP = document.createElement("p");
-							console.log(obj.firstn[1])
-							HTMLDiv.appendChild(createH3);
-							jqueryPage = element("searchResults").children[1];		
-							jqueryPage.appendChild(HTMLDiv);
-							
-							for (q in obj){
-								var createPInner = document.createElement("p");
-								createPInner.innerHTML = obj[q][0] + " " + obj[q][1]
-								HTMLDiv.appendChild(createPInner);
-								createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
-							}
-
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
 	};	
-		
 
 
 //Search Calls
 	 function displayCalls() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.supportType[1] === "Call"){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.supportType[1] === "Call"){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
-
-
-
+	};
 
 //Search Emails
 	 function displayEmails() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.supportType[1] === "Email"){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.supportType[1] === "Email"){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
+	};	
 
 
 //Search Online Chats
 	function displayOnlineChats() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.supportType[1] === "Online_Chat"){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.supportType[1] === "Online_Chat"){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
-
+	};	
 
 //Search Support Form
 	function displaySupportForm() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.supportType[1] === "Support_Form"){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.supportType[1] === "Support_Form"){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
+	};	
+
 	
 //Search entry
 	function displaySearch() {
@@ -585,113 +677,181 @@ window.addEventListener("DOMContentLoaded", function(){
 					
 					for(n in obj){
 						if(term === obj[n][1]){
-							var HTMLDiv = document.createElement("div");
-							HTMLDiv.setAttribute("id", "dataItems");
-							HTMLDiv.setAttribute("data-role", "collapsible");
-							HTMLDiv.setAttribute("data-collapsed", "true");
+							var ulTag = document.createElement("ul");
+							var ulTagDrilldown = document.createElement("ul");
+							var liTag = document.createElement("li");
+							var liTagDivider = document.createElement("li");
+							var liTagDrilldown = document.createElement("li");
+							var outerDiv = document.createElement("div");
+							var innerDiv = document.createElement("div");
 							var createH3 = document.createElement("h3");
-							var createP = document.createElement("p");
-							console.log(obj.firstn[1])
-							HTMLDiv.appendChild(createH3);
-							jqueryPage = element("searchResults").children[1];		
-							jqueryPage.appendChild(HTMLDiv);
+							var createH3P = document.createElement("p");
+							var createHref = document.createElement("a");
+							var newImage = document.createElement("img");
+							var varImg = obj.supportType[1];
+							//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+							newImage.setAttribute("src", "img/" + varImg + ".png");
+							outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+							createH3.setAttribute("class", "ui-li-heading");
+							innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+							createHref.setAttribute("href", "#drilldown");
+							//createHref.setAttribute("id", nameVerify);
+							createH3P.setAttribute("class", "ui-li-desc");
+							ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+							//ulTagDrilldown.setAttribute("data-filter", "true");
+							liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+							liTagDivider.setAttribute("data-role", "list-divider");
+							ulTagDrilldown.setAttribute("data-role", "listview");
 							
-							for (q in obj){
-								var createPInner = document.createElement("p");
-								createPInner.innerHTML = obj[q][0] + " " + obj[q][1]
-								HTMLDiv.appendChild(createPInner);
-								createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+							createH3.appendChild(newImage);
+							createHref.appendChild(createH3);
+							createHref.appendChild(createH3P)
+							outerDiv.appendChild(innerDiv);
+							liTag.appendChild(createHref);
+							ulTag.appendChild(liTag);
+				
+							for(q in obj){
+									var jqueryPage = element("searchResults").children[1];					
+									createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+									createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+									jqueryPage.appendChild(ulTag);	
+														
+									var jqueryPageDrill = element("drilldown").children[1];
+									jqueryPageDrill.appendChild(ulTagDrilldown);	
+									createPInner = document.createElement("p");
+									createPInner.innerHTML = obj[q][0] + " " + obj[q][1]
+									liTagDrilldown.appendChild(createPInner);
+									ulTagDrilldown.appendChild(liTagDivider);
+									ulTagDrilldown.appendChild(liTagDrilldown);
 							}
 						}
-					}
+					};	
 				}
+			}else{
+				window.location.reload(false);
+				
+				}
+			}
+		}
 
-			}		
-		}
-		else{
-			window.location.reload(false);
-			
-		}
-	}
+
 	
 //Search Sales Inquiry
 	function displaySalesInquiry() {
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.supportType[1] === "Sales_Inquiry"){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.supportType[1] === "Sales_Inquiry"){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]	
+					createH3P.innerHTML = obj.date[0] + " " + obj.date[1]				
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
-
+	};	
 
 //Search Date  
-
 function displayDate() {
-
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);
+			var key = localStorage.key(i);		
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
+			//var sortObj = obj[0].sort(date);
+			var ulTag = document.createElement("ul");
+			var ulTagDrilldown = document.createElement("ul");
+			var liTag = document.createElement("li");
+			var liTagDivider = document.createElement("li");
+			var liTagDrilldown = document.createElement("li");
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createH3P = document.createElement("p");
+			var createHref = document.createElement("a");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			//var nameVerify = obj.firstn[1] + obj.lastn[1] + obj.contactFeelings[1]	
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("class", "ui-btn-inner ui-li");
+			createH3.setAttribute("class", "ui-li-heading");
+			innerDiv.setAttribute("id", "dataItems", "class", "ui-btn-text");
+			createHref.setAttribute("href", "#drilldown");
+			//createHref.setAttribute("id", nameVerify);
+			createH3P.setAttribute("class", "ui-li-desc");
+			ulTag.setAttribute("data-role", "listview", "class", "ui-listview");
+			//ulTagDrilldown.setAttribute("data-filter", "true");
+			liTag.setAttribute("data-icon", "arrow-r", "data-iconpos", "right", "data-theme", "c");
+			liTagDivider.setAttribute("data-role", "list-divider");
+			ulTagDrilldown.setAttribute("data-role", "listview");
 			
-			
+			createH3.appendChild(newImage);
+			createHref.appendChild(createH3);
+			createHref.appendChild(createH3P)
+			outerDiv.appendChild(innerDiv);
+			liTag.appendChild(createHref);
+			ulTag.appendChild(liTag);
 
-			if(obj.date[1] != ""){ //category is looking for the value of supportType, not anything else
-				var makeli = document.createElement("li");
-				var dividerLi = document.createElement("li");
-				var makeSubList = document.createElement("ul");
-				makeSubList.setAttribute("data-role", "listview");
-				dividerLi.setAttribute("data-role", "list-divider");		
-				makeli.appendChild(makeSubList);
-				makeList.appendChild(makeli);
-				makeSubList.appendChild(dividerLi)
-				for (q in obj){
-					
-					var makeSubli = document.createElement("li");
-					makeSubli.innerHTML = obj[q][0] + " " + obj[q][1]
-					
-					makeSubList.appendChild(makeSubli);
-					console.log(obj[q][0] + " " + obj[q][1])
-						jqueryPage = element("searchResults").children[1];		//jqueryPage places content inside searchResults 2nd Div tag
-						jqueryPage.appendChild(makeDiv);						//jqueryPage append so <div><div></div></div>
-
+			for(n in obj){
+				if(obj.date[1] != ""){
+					var jqueryPage = element("searchResults").children[1];					
+					createH3.innerHTML = obj.date[1] 	
+					createH3P.innerHTML = obj.firstn[1] + " " + obj.lastn[1]			
+					jqueryPage.appendChild(ulTag);	
+										
+					var jqueryPageDrill = element("drilldown").children[1];
+					jqueryPageDrill.appendChild(ulTagDrilldown);	
+					createPInner = document.createElement("p");
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]
+					liTagDrilldown.appendChild(createPInner);
+					ulTagDrilldown.appendChild(liTagDivider);
+					ulTagDrilldown.appendChild(liTagDrilldown);
 				}
 			}
 		}
-	}	
+	};	
 
 
 //Links for Browse Categories
