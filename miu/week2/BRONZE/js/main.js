@@ -371,11 +371,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Response
 	function displayResponse() {			
-	
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];	
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -431,10 +432,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Calls
 	 function displayCalls() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key]; 
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -489,10 +492,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Emails
 	 function displayEmails() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];	 
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -548,10 +553,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Online Chats
 	function displayOnlineChats() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];	
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -606,10 +613,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Support Form
 	function displaySupportForm() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];	
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -670,10 +679,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		var term = element("searchField").value;
 			if(term != ""){
-				for (i=0, j=localStorage.length; i<j; i++){
-					var key = localStorage.key(i);		
-					var value = localStorage.getItem(key);
-					var obj = JSON.parse(value);
+				for (var key in jsonObjects){
+					var obj = jsonObjects[key];		
+				//for (i=0, j=localStorage.length; i<j; i++){
+					//var key = localStorage.key(i);		
+					//var value = localStorage.getItem(key);
+					//var obj = JSON.parse(value);
 					
 					for(n in obj){
 						if(term === obj[n][1]){
@@ -738,10 +749,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 //Search Sales Inquiry
 	function displaySalesInquiry() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");
@@ -796,11 +809,13 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Date  
 function displayDate() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			//var sortObj = obj[0].sort(date);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];			
 			var ulTag = document.createElement("ul");
 			var ulTagDrilldown = document.createElement("ul");
 			var liTag = document.createElement("li");

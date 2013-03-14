@@ -367,19 +367,19 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 
 //Search Response
-	function displayResponse() {			
-	
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+	function displayResponse() {	
+		//for (i=0, j=localStorage.length; i<j; i++){
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var outerDiv = document.createElement("div");
 			var innerDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
 			var newImage = document.createElement("img");
 			var varImg = obj.supportType[1];
-			console.log(varImg)
 			newImage.setAttribute("class", "ui-li-icon ui-li-thumb");
 			newImage.setAttribute("src", "img/" + varImg + ".png");
 			outerDiv.setAttribute("data-role", "collapsible-set");
@@ -391,7 +391,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			createH3.appendChild(newImage);
 			innerDiv.appendChild(createH3);
 			outerDiv.appendChild(innerDiv);
-
+			console.log(createH3)
 			for(n in obj){
 				if(obj.response[1] === "Yes"){
 					var jqueryPage = element("searchResults").children[1];
@@ -401,18 +401,20 @@ window.addEventListener("DOMContentLoaded", function(){
 					
 					innerDiv.appendChild(createPInner);
 					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
-				}
+				}	
 			}
 		}
-	};	
+	}
 
 
 //Search Calls
 	 function displayCalls() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
@@ -440,10 +442,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Emails
 	 function displayEmails() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];		
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
@@ -471,10 +475,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Online Chats
 	function displayOnlineChats() {
-		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];	
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
@@ -502,10 +508,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Support Form
 	function displaySupportForm() {
-			for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];		
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
@@ -538,10 +546,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		var term = element("searchField").value;
 	//		if(term != ""){
-				for (i=0, j=localStorage.length; i<j; i++){
-					var key = localStorage.key(i);		
-					var value = localStorage.getItem(key);
-					var obj = JSON.parse(value);
+				for (var key in jsonObjects){
+					var obj = jsonObjects[key];				
+				//for (i=0, j=localStorage.length; i<j; i++){
+					//var key = localStorage.key(i);		
+					//var value = localStorage.getItem(key);
+					//var obj = JSON.parse(value);
 					
 					for(n in obj){
 						if(term === obj[n][1]){
@@ -576,10 +586,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 //Search Sales Inquiry
 	function displaySalesInquiry() {
-			for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		//for (i=0, j=localStorage.length; i<j; i++){
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];		
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
@@ -607,10 +619,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Search Date  
 function displayDate() {
-			for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+		for (var key in jsonObjects){
+			var obj = jsonObjects[key];
+		//for (i=0, j=localStorage.length; i<j; i++){
+			//var key = localStorage.key(i);		
+			//var value = localStorage.getItem(key);
+			//var obj = JSON.parse(value);
 			var HTMLDiv = document.createElement("div");
 			var createH3 = document.createElement("h3");
 			var createP = document.createElement("p");
