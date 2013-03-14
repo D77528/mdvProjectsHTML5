@@ -1,14 +1,13 @@
 //Reyes, Timothy
-//Virtual Frameworks 1302
-//Project Web App Part 4
-//GitHub: https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/vf_project4
+//MIU 1303
+//Project Week 2
 
 
 window.addEventListener("DOMContentLoaded", function(){
 
 
 //Global variables
-	var supportTypeList = ["--> Choose Support Type", "Call", "Email", "Online_Chat", "Support_Form"];
+	var supportTypeList = ["--> Choose Support Type", "Call", "Email", "Online_Chat", "Support_Form", "Sales_Inquiry"];
 	var responseBox = "No";
 	var endUserValue;
 	var errorM = element("anyErrors");
@@ -45,11 +44,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	dynamicInsert()
-
+	
 
 //Radio Buttons for Contact Type
 	function getEndUserValue(){
-		var contactRadios = document.forms[0].contactType;
+		var contactRadios = document.getElementsByName("contactType")
 		for(var i=0; i<contactRadios.length; i++){
 		
 			if(contactRadios[i].checked){
@@ -79,8 +78,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				element("clearStoredData").style.display = "inline";
 				element("addNewItem").style.display = "inline";
 				element("displayData").style.display = "none";
-				element("h1").style.display = "block";
-				element("h2").style.display = "block";
+				//element("h1").style.display = "block";
+				//element("h2").style.display = "block";
 				element("h3").style.display = "block";
 				break;
 				
@@ -136,38 +135,47 @@ window.addEventListener("DOMContentLoaded", function(){
 			alert("No Support Tickets Entered; will auto-populate Ticket entry");
 			autoFillTicket();
 		}
-			var HTMLDiv = document.createElement("div");
-			HTMLDiv.setAttribute("id", "dataItems", "align");
-			HTMLDiv.align ="left";
-			var newList = document.createElement("ul");
-			HTMLDiv.appendChild(newList);
-			document.body.appendChild(HTMLDiv);
-			element("dataItems").style.display = "block";
-			element("dataItems").style.display = ""
-			for(var i=0, j=localStorage.length; i<j; i++){
-				var li = document.createElement("li");
-				var createLi = document.createElement("li");
-				newList.appendChild(li);
-				var key = localStorage.key(i);
-				var value = localStorage.getItem(key);
-				var object = JSON.parse(value);
-				var makeTabList = document.createElement("ul");
-				makeTabList.style.border="2px solid black";
-				makeTabList.style.padding="10px";
-				makeTabList.width-"200px";
-				getImg(object.supportType[1], makeTabList);
-				li.appendChild(makeTabList);
-				for(var v in object){
-					var makeTabli = document.createElement("li");
-					makeTabList.appendChild(makeTabli);
-					var text = object[v][0] + object[v][1];
-					makeTabli.innerHTML = text;
-					makeTabList.appendChild(createLi);
-				}
-			makeItemLinks(localStorage.key(i), createLi);	
+			var HTMLDiv = document.createElement("div");			//HTMLDiv creates a <div></div>
+			HTMLDiv.setAttribute("id", "dataItems", "align");		//HTMLDiv includes <div id="dataItems" align=""></div>
+			HTMLDiv.align ="left";									//HTMLDiv includes left for <div align="left"></div>
+			var newList = document.createElement("ul");				//newList creates <ul></ul>
+			HTMLDiv.appendChild(newList);							//HTMLDiv append so <div><ul></ul></div>
+			jqueryPage = element("supportTicket").children[1];		//jqueryPage places content inside supportTickets 2nd Div tag
+			jqueryPage.appendChild(HTMLDiv);						//jqueryPage append so <div><div></div></div>
+			element("dataItems").style.display = "block";			//CSS display
+			element("dataItems").style.display = ""					//CSS display
+			for(var i=0, j=localStorage.length; i<j; i++){			//
+				var li = document.createElement("li");				// li creates <li></li> li is the entire group around border
+				var createLi = document.createElement("li");		// createLi creates <li></li> createLi is the Edit and Delete section
+				var dividerLi = document.createElement("li");
+				newList.appendChild(li);							// newList append so <ul><li></li></ul>
+				var key = localStorage.key(i);						//key is localStorage length key key
+				var value = localStorage.getItem(key);				//value is localStorage length value key
+				var object = JSON.parse(value);						// object is parsing the JSON value
+				var makeTabList = document.createElement("ul");		//makeTabList 
+				makeTabList.setAttribute("data-role", "listview");
+				dividerLi.setAttribute("data-role", "list-divider");
+				makeTabList.style.border="2px solid black";			//CSS display
+				makeTabList.style.padding="10px";					//CSS display
+				makeTabList.width-"320px";							//CSS display
+				getImg(object.supportType[1], makeTabList);			//getImg function matches supportType with list
+				li.appendChild(makeTabList);						// li append so <ul><li>
+				makeTabList.appendChild(dividerLi)
+				for(var v in object){								// loop var = v into parsed Local Storage
+					var makeTabli = document.createElement("li");	//makes additional li  makeTabli stands for objects within original li
+					//makeTabli.setAttribute("id", v);
+					//element("firstn").style.background = "#ff0000"
+					makeTabList.appendChild(makeTabli);				//li appends so <ul><li>
+					var text = object[v][0] + object[v][1];			// text is parsed Local Storage v 0 and 1
+					makeTabli.innerHTML = text;						// li's innerHTML is the Local Storage v 0 and 1
+					
+					makeTabList.appendChild(createLi);				// ul append so <ul><li>
+				console.log(makeTabli)	}
+																//out of nested loop
+			makeItemLinks(localStorage.key(i), createLi);			// makeItemLinks are links for edit and delete button
 		}	
 	};
-	
+
 //Get Image for Support Type
 	function getImg(varImg, makeTabList){
 		var imgLi = document.createElement("li");
@@ -224,19 +232,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		element("email").value = item.email[1];
 		element("phone").value = item.phone[1];
 		element("date").value = item.date[1];
-		
-		var radios = document.forms[0].contactType
+	
+		var radios = document.getElementsByName("contactType");
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "End User" && item.contactType[1] == "End User"){
-			radios[i].setAttribute("checked", "checked");
+			radios[i].setAttribute("checked", "");
 			
 				}else if(radios[i].value == "Dealer" && item.contactType[1] == "Dealer"){
-					radios[i].setAttribute("checked", "checked");
+					radios[i].setAttribute("checked", "");
 			}
 		};
 		element("contactFeelings").value = item.contactFeelings[1];
 		element("supportType").value = item.supportType[1];
-		
 		if(item.response[1] == "Contact waiting for response."){
 			element("awaitingResponse").setAttribute("checked", "checked")
 		};
@@ -350,26 +357,314 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		
 	
+	};		
+
+// Clears Search Field
+	function funSearchField(){
+		//this.value='';
 	};
+
+			
+
+//Search Response
+	function displayResponse() {			
 	
-	
-	//Search onBlur event
-	var searchField = element("searchButton");
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var outerDiv = document.createElement("div");
+			var innerDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+			var newImage = document.createElement("img");
+			var varImg = obj.supportType[1];
+			console.log(varImg)
+			newImage.setAttribute("class", "ui-li-icon ui-li-thumb");
+			newImage.setAttribute("src", "img/" + varImg + ".png");
+			outerDiv.setAttribute("data-role", "collapsible-set");
+			innerDiv.setAttribute("data-filter", "true");
+			createH3.setAttribute("class", "ui-collapsible-heading");
+			innerDiv.setAttribute("id", "dataItems");
+			innerDiv.setAttribute("data-role", "collapsible");
+			innerDiv.setAttribute("data-collapsed", "true");
+			createH3.appendChild(newImage);
+			innerDiv.appendChild(createH3);
+			outerDiv.appendChild(innerDiv);
+
+			for(n in obj){
+				if(obj.response[1] === "Yes"){
+					var jqueryPage = element("searchResults").children[1];
+					jqueryPage.appendChild(innerDiv);						
+					var createPInner = document.createElement("p");					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					
+					innerDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
+		}
+	};	
 
 
-	console.log(searchField);
-	searchField.onfocus = function(){
-		if (searchField.value == "Search Tickets"){
-			searchField.value = "";
+//Search Calls
+	 function displayCalls() {
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.supportType[1] === "Call"){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
 		}
-	};
-	searchField.onblur = function() {
-		if (searchField.value == ""){
-			searchField.value = "Search Tickets";
+	}	
+
+
+//Search Emails
+	 function displayEmails() {
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.supportType[1] === "Email"){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
 		}
-	};
+	}	
+
+
+//Search Online Chats
+	function displayOnlineChats() {
+		for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.supportType[1] === "Online_Chat"){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
+		}
+	}	
+
+
+//Search Support Form
+	function displaySupportForm() {
+			for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.supportType[1] === "Support_Form"){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
+		}
+	}	
+
 	
-console.log(localStorage);
+//Search entry
+	function displaySearch() {
+		element("searchField").setAttribute("value", "");
+		if (!element("dataItems")) {
+		
+		var term = element("searchField").value;
+	//		if(term != ""){
+				for (i=0, j=localStorage.length; i<j; i++){
+					var key = localStorage.key(i);		
+					var value = localStorage.getItem(key);
+					var obj = JSON.parse(value);
+					
+					for(n in obj){
+						if(term === obj[n][1]){
+							var HTMLDiv = document.createElement("div");
+							HTMLDiv.setAttribute("id", "dataItems");
+							HTMLDiv.setAttribute("data-role", "collapsible");
+							HTMLDiv.setAttribute("data-collapsed", "false");
+							var createH3 = document.createElement("h3");
+							var createP = document.createElement("p");
+							console.log(obj.firstn[1])
+							HTMLDiv.appendChild(createH3);
+							jqueryPage = element("searchResults").children[1];		
+							jqueryPage.appendChild(HTMLDiv);
+							
+							for (q in obj){
+								var createPInner = document.createElement("p");
+								createPInner.innerHTML = obj[q][0] + " " + obj[q][1]
+								HTMLDiv.appendChild(createPInner);
+								createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+							}
+						}
+					}
+				}
+
+			}		
+	//	}
+	//	else{
+	//		window.location.reload(false);
+			
+	//	}
+	}
+	
+//Search Sales Inquiry
+	function displaySalesInquiry() {
+			for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.supportType[1] === "Sales_Inquiry"){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
+		}
+	}	
+
+
+//Search Date  
+function displayDate() {
+			for (i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);		
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var HTMLDiv = document.createElement("div");
+			var createH3 = document.createElement("h3");
+			var createP = document.createElement("p");
+
+			HTMLDiv.setAttribute("id", "dataItems");
+			HTMLDiv.setAttribute("data-role", "collapsible");
+			HTMLDiv.setAttribute("data-collapsed", "true");
+			HTMLDiv.appendChild(createH3);
+			
+			for(n in obj){
+				if(obj.date[1] != ""){
+					var jqueryPage = element("searchResults").children[1];	
+					var createPInner = document.createElement("p");
+					
+					createPInner.innerHTML = obj[n][0] + " " + obj[n][1]						
+					jqueryPage.appendChild(HTMLDiv);
+					
+					HTMLDiv.appendChild(createPInner);
+					createH3.innerHTML = obj.date[1] + ": " + obj.firstn[1] + " " + obj.lastn[1]
+				}
+			}
+		}
+	}	
+
+
+//Links for Browse Categories
+	var browseResponse = element("browseResponse");
+	browseResponse.addEventListener("click", displayResponse);
+	
+	var browseCalls = element("browseCalls");
+	browseCalls.addEventListener("click", displayCalls);
+	
+	var browseEmails = element("browseEmails");
+	browseEmails.addEventListener("click", displayEmails);
+	
+	var browseOnlineChats = element("browseOnlineChats");
+	browseOnlineChats.addEventListener("click", displayOnlineChats);
+	
+	var browseSupportForm = element("browseSupportForm");
+	browseSupportForm.addEventListener("click", displaySupportForm);
+	
+	var browseSalesInquiry = element("browseSalesInquiry");
+	browseSales.addEventListener("click", displaySalesInquiry);
+	
+	var browseSearch = element("searchBtn");
+	searchBtn.addEventListener("click", displaySearch);
+	
+	var browseDate = element("browseDate");
+	browseDate.addEventListener("click", displayDate);
+	/*
+	var searchField = element("searchField");
+	searchField.addEventListener("onfocus", funSearchField);
+	*/
+
 
 //Links: displayData, clearData & Submit Button	
 	var displayData = element("displayData");
@@ -381,7 +676,7 @@ console.log(localStorage);
 	var button = element("button");
 	button.addEventListener("click", validate);
 	
-
+console.log(localStorage);
 
 });
 

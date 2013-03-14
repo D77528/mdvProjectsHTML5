@@ -36,6 +36,12 @@ input[type="range"]{
 	width: 100%;
 }
 
+#link {
+	color: #3b95cf;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 /* Classes */
 
 
