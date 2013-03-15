@@ -1,0 +1,289 @@
+<!doctype html>
+<! Reyes, Timothy MIU 1303>
+
+<html>
+	<head>
+		<!-- Character Set Meta -->
+		<meta charset="utf-8" />
+		<meta name="description" content="Main Technical Support page for adding new ticket" />
+		<meta name="keywords" content="Compix Media, add new entry, Full Sail University" />
+		<meta name="robots" content="index, follow" />
+		<meta name="HandheldFriendly" content="True"> <!-- geared towards Mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- geared towards Mobile-->
+		<meta name="MobileOptimized" content="320"/> <!-- geared towards Mobile-->
+		<meta http-equiv="cleartype" content="on"> <!-- Mobile IE needs ClearType for smoothing fonts -->
+		<title>Compix Media Technical Support Ticket System</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	
+	
+<body>
+
+	<div data-role="page" id="home" data-add-back-btn="true"><!-- pageStart-->
+		<div data-role="header" data-position="fixed"><!-- header-->
+			<h1>Ticket System</h1>
+			<img src="img/banner.png" class="banner" />
+		</div>
+
+		<div data-role="content">
+			<table class="topRow">
+				<tr>
+					<td>
+						<a href="http://www.compix.tv" target="_blank">
+							<img src="img/compix.png" data-inline="true" />
+						</a>
+					</td>
+					<td>
+						<input type="search" name="search" data-inline="true" id="searchField" value="" data-mini="true">
+					</td>
+					<td>
+						<a href="#searchResults">
+							<input type="button" value="Search" data-inline="true" id="searchBtn" data-mini="true">
+						</a>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<a href="#supportTicket">
+					<img src="img/feature_bg.jpg" id="features" />
+				</a>
+			</p>
+			<div>
+				<ul data-role="listview" data-insert="true" data-divider-theme="d">
+					<li data-role="list-divider">Urgent Customers:</li>
+					<li>
+						<a href="#searchResults" id="browseResponse">
+							<h2>Waiting for Response</h2>
+						</a>
+					</li>
+					<li data-role="list-divider">Browse Categories:</li>
+						<li>
+							<a class="ui-link-inherit" href="#searchResults" id="browseCalls">
+								<img src="img/lrgCall.png" />
+								<h2>Calls</h2>
+							</a>
+						</li>
+						<li>
+							<a class="ui-link-inherit" href="#searchResults" id="browseEmails">
+								<h2>Emails</h2>
+								<img src="img/lrgEmail.png" />
+							</a>
+						</li>
+						<li>
+							<a class="ui-link-inherit" href="#searchResults" id="browseOnlineChats">
+								<h2>Online Chats</h2>
+								<img src="img/lrgOnline_Chat.png" />
+							</a>
+						</li>
+						<li>
+							<a class="ui-link-inherit" href="#searchResults" id="browseSupportForm">
+								<h2>Support Form</h2>
+								<img src="img/lrgSupport_Form.png" />
+							</a>
+						</li>
+						<li>
+							<a class="ui-link-inherit" href="#searchResults" id="browseSales">
+								<h2>Sales Inquiry</h2>
+								<img src="img/lrgSales_Inquiry.png" />
+							</a>
+						</li>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#supportTicket">Add Ticket</a></li>
+					<li><a href="#info">Info</a></li>	
+				</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+	
+	<div data-role="page" id="supportTicket" data-add-back-btn="true"><!-- pageStart-->
+		<div data-role="header" data-position="fixed"><!-- header-->
+			<h1>Technical Support Tickets</h1>
+			<img src="img/banner.png" class="banner" />
+		</div>
+		<div data-role="content">
+			<form action="#" method="post" id="onlyForm">
+				<fieldset class="fieldset">
+					<legend>Contact Info</legend>
+					<ul>
+						<li><label for="firstn">First Name:</label><input type="text" id="firstn" data-clear-btn="true" placeholder="John" data-mini="true" /></li>
+						<li><label for="lastn">Last Name:</label><input type="text" id="lastn" data-clear-btn="true" placeholder="Smith" data-mini="true" /></li>
+						<li><label for="email">Email:</label><input type="email" id="email" data-clear-btn="true" placeholder="aaa@bbb.com" data-mini="true" /></li>
+						<li><label for="phone">Phone Number:</label><input type="text" id="phone" data-clear-btn="true" placeholder="(949)111-2222" data-mini="true" /></li>
+						<li>
+							<label for="date">Enter Date:</label>
+							<input type="date" data-clear-btn="false" value="" id="date" name="date" data-clear-btn="true" data-mini="true" />
+						</li>
+						<li>Contact Type:
+							<ul>
+								<li><input type="radio" checked="undefined" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label></li>
+								<li><input type="radio" checked="undefined" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label></li>
+							</ul>	
+						</li>
+						<li>
+							<label for="contactFeelings">Contact Feelings: Happy / Upset</label>
+							<input type="range" data-mini="true" name="slider" id="contactFeelings" value="50" min="0" max="100" />
+						</li>
+					</ul>
+				</fieldset>
+				<fieldset class="fieldset">
+					<legend>Support Description</legend>
+					<ul>
+						<li id="select">
+							<label for="supportType" class="select">Support Type:</label>
+						</li>
+						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" data-mini="true" />
+							<label for="awaitingResponse">Is contact waiting for response?</label>
+						</li>
+						<li>
+							<label for="comments">Support Overview:</label>
+							<textarea cols="40" rows="8" name="comments" id="comments" placeholder="Technical Issues" data-mini="true"></textarea>
+						</li>
+					</ul>
+				</fieldset>
+					<ul id="anyErrors"></ul>
+					<div data-role="button" id="button">
+						<input type="button" name:"SUBMIT" value="SUBMIT" data-mini="true"/>
+					</div>
+			</form>
+			<ul>
+				<li>
+					<a href="#" title="Display Data" id="displayData">Display Data</a>
+					<a href="#supportTicket" id="addNewItem" style="display:none;">Add New Item</a>
+					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
+					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
+				</li>		
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#supportTicket">Add Ticket</a></li>
+					<li><a href="#info">Info</a></li>
+					
+				</ul>		
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+	<div data-role="page" id="searchResults" data-add-back-btn="true"><!-- pageStart -->
+		<div data-role="header" data-position="fixed">
+			<h1>Search Results</h1>	
+		<!-- header-->
+		</div>
+		<div data-role="content">
+		<!-- content-->	
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<!-- footer -->
+			<div data-role="navbar">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#supportTicket">Add Ticket</a></li>
+						<li><a href="#info">Info</a></li>
+						
+					</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+	
+	<div data-role="page" id="info" data-add-back-btn="true"><!-- pageStart -->
+		<div data-role="header" data-position="fixed">
+			<h1>Information</h1>
+
+		</div>
+		<div data-role="content" class="ui-content" role="main">
+			<div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed="true">
+					<h3 class="ui-collapsible-heading">GitHub Link</h3>
+					<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week2" >
+						<p>Link to Repo</p>
+					</a>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h3 class="ui-collapsible-heading">Gold and Bronze Links</h3>
+					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/GOLD/index.html">
+						<p>Gold App</p>
+					</a>
+					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/BRONZE/index.html">
+						<p>Bronze App</p>
+					</a>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h3 class="ui-collapsible-heading">NewsFeed</h3>
+					<a href="#searchResults" class="ui-link-inherit" id="browseDate">
+						<p id="link">View Recent Tickets</p>
+					</a>	
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h3 class="ui-collapsible-heading">About Timothy Reyes</h3>
+					<a href="#aboutTimothy" class="ui-link-inherit">
+						<p id="link">Learn about the author of this app</p>
+					</a>	
+				</div>			
+			</div>	
+		</div>	
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#supportTicket">Add Ticket</a></li>
+					<li><a href="#info">Info</a></li>
+					
+				</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->	
+
+	
+	<div data-role="page" id="aboutTimothy" data-add-back-btn="true"><!-- pageStart -->
+		<div data-role="header" data-position="fixed">
+		<h1>About Timothy Reyes</h1>
+	<!-- header-->
+		</div>
+		<div data-role="content">
+			<ul>
+				<li>
+					<h3>About Timothy Reyes</h3>
+					<p>I had visited my grandmothers house in Chicago some time ago.  While there she had enlightened me with stories of trials and tribulations of my grandfathers occupation as a computer technician back in the 1970's or so.
+My grandfather had always been a tech savvy guy, but I never knew where it all began.  I now know why I am so eager to learn the latest that technology has to offer.
+
+For the past 10 or so years I have worked at my father-in-laws company, Compix Media, Inc.  In a nutshell, Compix Media creates broadcast graphic systems for video overlays, like when watching the News or Sports channel.  Our main market sectors are education, sports, government, and broadcast.  There, I have worked in technical support, sales, IT, marketing, and graphic/web design.  My main focuses have been towards technical support.  Although I was self taught at all levels, I built a pretty solid foundation of who I was, and what I want to become.</p>
+				</li>
+			</ul>
+		</div>
+	
+		<div data-role="footer" data-position="fixed">
+		<!-- footer -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#supportTicket">Add Ticket</a></li>
+					<li><a href="#info">Info</a></li>
+				</ul>	
+			</div>
+		</div>
+	</div><!-- pageEnd -->
+	
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript"
+</body>
+
+
+</html>
