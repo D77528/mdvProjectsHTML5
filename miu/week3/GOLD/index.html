@@ -55,7 +55,7 @@
 				<ul data-role="listview" data-insert="true" data-divider-theme="d">
 					<li data-role="list-divider">Urgent Customers:</li>
 					<li>
-						<a href="#searchResults" id="browseResponse">
+						<a href="#searchResults" id="browseResponse" >
 							<h2>Waiting for Response</h2>
 						</a>
 					</li>
@@ -112,49 +112,71 @@
 			<img src="img/banner.png" class="banner" />
 		</div>
 		<div data-role="content">
-			<form action="#" method="post" id="onlyForm">
+			<form action="" method="post" id="onlyForm">
 				<fieldset class="fieldset">
 					<legend>Contact Info</legend>
 					<ul>
-						<li><label for="firstn">First Name:</label><input type="text" id="firstn" data-clear-btn="true" placeholder="John" data-mini="true" /></li>
-						<li><label for="lastn">Last Name:</label><input type="text" id="lastn" data-clear-btn="true" placeholder="Smith" data-mini="true" /></li>
-						<li><label for="email">Email:</label><input type="email" id="email" data-clear-btn="true" placeholder="aaa@bbb.com" data-mini="true" /></li>
-						<li><label for="phone">Phone Number:</label><input type="text" id="phone" data-clear-btn="true" placeholder="(949)111-2222" data-mini="true" /></li>
-						<li>
-							<label for="date">Enter Date:</label>
-							<input type="date" data-clear-btn="false" value="" id="date" name="date" data-clear-btn="true" data-mini="true" />
-						</li>
-						<li>Contact Type:
-							<ul>
-								<li><input type="radio" checked="undefined" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label></li>
-								<li><input type="radio" checked="undefined" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label></li>
-							</ul>	
-						</li>
-						<li>
-							<label for="contactFeelings">Contact Feelings: Happy / Upset</label>
-							<input type="range" data-mini="true" name="slider" id="contactFeelings" value="50" min="0" max="100" />
-						</li>
+					<div data-role="fieldcontain">
+						
+							<li><label for="firstn">* First Name</label><input type="text" name="firstn" id="firstn" data-clear-btn="true" placeholder="John" data-mini="true" class="required" /></li>
+							<li><label for="lastn">* Last Name</label><input type="text" name="lastn" id="lastn" data-clear-btn="true" placeholder="Smith" data-mini="true" class="required" /></li>
+							<li><label for="email">Email</label><input type="email" name="email" id="email" data-clear-btn="true" placeholder="aaa@bbb.com" data-mini="true" class="email" /></li>
+							<li><label for="phone">Phone Number</label><input type="text" name="phone" id="phone" data-clear-btn="true" placeholder="(949)111-2222" data-mini="true" class="number" /></li>
+							<li>
+								<label for="date">Enter Date</label>
+								<input type="date" data-clear-btn="false" value="" id="date" name="date" data-clear-btn="true" placeholder="mm/dd/yyyy" data-mini="true" class="date" />
+							</li>	
+					</div>
 					</ul>
+					<ul>
+					<div data-role="fieldcontain">	
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend>Contact Type</legend>
+							<input type="radio" checked="undefined" value="End User" id="endUser" name="contactType" data-mini="true" /><label for="endUser">End User</label>
+							<input type="radio" checked="undefined" value="Dealer" id="dealer" name="contactType" data-mini="true" /><label for="dealer">Dealer</label>
+						</fieldset>
+					</div>
+					<div data-role="fieldcontain">	
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend>Contact Feelings: Happy / Upset</legend>
+							<input type="radio" checked="undefined" value="Happy" id="happy" name="contactFeeling" data-mini="true" /><label for="happy">Happy</label>
+							<input type="radio" checked="undefined" value="Upset" id="upset" name="contactFeeling" data-mini="true" /><label for="upset">Upset</label>
+						</fieldset>
+					</div>
+					</ul>
+					
 				</fieldset>
 				<fieldset class="fieldset">
 					<legend>Support Description</legend>
-					<ul>
-						<li id="select">
-							<label for="supportType" class="select">Support Type:</label>
-						</li>
-						<li><input type="checkbox" value="Contact waiting for response." id="awaitingResponse" data-mini="true" />
-							<label for="awaitingResponse">Is contact waiting for response?</label>
-						</li>
-						<li>
-							<label for="comments">Support Overview:</label>
-							<textarea cols="40" rows="8" name="comments" id="comments" placeholder="Technical Issues" data-mini="true"></textarea>
-						</li>
-					</ul>
+						<ul>
+							<li id="select">
+								<label for="supportType" class="select">Support Type</label>
+								<select id="supportType" data-native-menu="false" name="supportType" data-mini="true" >
+									<option data-placeholder="true">Choose Support Type</option>
+									<option value="Call">Call</option>
+									<option value="Email">Email</option>
+									<option value="Online_Chat">Online_Chat</option>
+									<option value="Support_Form">Support_Form</option>
+									<option value="Sales_Inquiry">Sales_Inquiry</option>
+								</select>	
+							</li>
+								<fieldset data-role="controlgroup">
+									<li><input type="checkbox" value="Waiting for Response?" name="awaitingResponse" id="awaitingResponse" data-mini="true" />
+										<label for="awaitingResponse">Waiting for Response?</label>
+									</li>
+								</fieldset>
+							<li>
+								<label for="comments">* Support Overview</label>
+								<textarea cols="40" rows="8" name="comments" id="comments" placeholder="Technical Issues" data-mini="true" class="required"></textarea>
+							</li>
+						</ul>
 				</fieldset>
 					<ul id="anyErrors"></ul>
 					<div data-role="button" id="button">
-						<input type="button" name:"SUBMIT" value="SUBMIT" data-mini="true"/>
+						<input type="submit" value="SUBMIT" data-mini="true" data-theme="b"/>
+						<input type="reset" value="RESET" data-mini="true" data-theme="a" id="reset" />
 					</div>
+				<a href="#recordErrorsPage" id="recordErrorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
 			</form>
 			<ul>
 				<li>
@@ -182,7 +204,7 @@
 			<h1>Search Results</h1>	
 		<!-- header-->
 		</div>
-		<div data-role="content">
+		<div data-role="content" id="contentSearchResults">
 		<!-- content-->	
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -276,6 +298,33 @@ For the past 10 or so years I have worked at my father-in-laws company, Compix M
 			</div>
 		</div>
 	</div><!-- pageEnd -->
+	
+		<div data-role="dialog" id="recordErrorsPage"><!-- pageStart -->
+			<div data-role="header" data-position="fixed">
+				<h1>Missing Required</h1>
+				
+			<!-- header-->
+			
+			</div>
+			<div data-role="content">
+			<!-- content-->
+			<li></li>
+			
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+			
+			<!-- footer -->
+			
+				<div data-role="navbar">
+						<ul>
+							<li><a href="#home">Home</a></li>
+							<li><a href="#supportTicket">Add Ticket</a></li>
+							<li><a href="#info">Info</a></li>
+						</ul>	
+				</div>
+			</div>
+		</div><!-- pageEnd -->
 	
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>

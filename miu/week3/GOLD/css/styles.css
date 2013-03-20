@@ -42,6 +42,11 @@ input[type="range"]{
 	text-decoration: underline;
 }
 
+#recordErrors {
+	display:none;
+	
+}
+
 /* Classes */
 
 
@@ -71,5 +76,9 @@ input[type="range"]{
 	padding: 0px 15px 0px 0px;
 }
 
-
+label.error {
+	display: block;
+	color: red;
+	margin: 10px 0px;
+}
 
