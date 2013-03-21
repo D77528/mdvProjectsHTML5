@@ -42,7 +42,7 @@ input[type="range"]{
 	text-decoration: underline;
 }
 
-#recordErrors {
+#recordErrorsLink {
 	display:none;
 	
 }

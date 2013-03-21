@@ -37,7 +37,7 @@
 						</a>
 					</td>
 					<td>
-						<input type="search" name="search" data-inline="true" id="searchField" value="" data-mini="true">
+						<input type="search" name="search" data-inline="true" id="searchField" value="" data-filter="true" data-mini="true">
 					</td>
 					<td>
 						<a href="#searchResults">
@@ -85,7 +85,7 @@
 							</a>
 						</li>
 						<li>
-							<a class="ui-link-inherit" href="#searchResults" id="browseSales">
+							<a class="ui-link-inherit" href="#searchResults" id="browseSalesInquiry">
 								<h2>Sales Inquiry</h2>
 								<img src="img/lrgSales_Inquiry.png" />
 							</a>
@@ -180,7 +180,7 @@
 			</form>
 			<ul>
 				<li>
-					<a href="#" title="Display Data" id="displayData">Display Data</a>
+					<a href="#searchResults" title="Display Data" id="displayData">Display Data</a>
 					<a href="#supportTicket" id="addNewItem" style="display:none;">Add New Item</a>
 					<a href="#" title="Clear Stored Data" id="clearStoredData">Clear Stored Data</a>
 					<h3 id="h3" style="display:none;">Saved Support Tickets</h3>				
@@ -230,16 +230,16 @@
 			<div data-role="collapsible-set">
 				<div data-role="collapsible" data-collapsed="true">
 					<h3 class="ui-collapsible-heading">GitHub Link</h3>
-					<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week2" >
+					<a href="https://github.com/D77528/mdvProjectsHTML5/tree/gh-pages/miu/week3" >
 						<p>Link to Repo</p>
 					</a>
 				</div>
 				<div data-role="collapsible" data-collapsed="true">
 					<h3 class="ui-collapsible-heading">Gold and Bronze Links</h3>
-					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/GOLD/index.html">
+					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week3/GOLD/index.html">
 						<p>Gold App</p>
 					</a>
-					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week2/BRONZE/index.html">
+					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week3/BRONZE/index.html">
 						<p>Bronze App</p>
 					</a>
 				</div>
@@ -325,13 +325,39 @@ For the past 10 or so years I have worked at my father-in-laws company, Compix M
 				</div>
 			</div>
 		</div><!-- pageEnd -->
+		
+			<div data-role="page" id="oops404" data-add-back-btn="true"><!-- pageStart -->
+			<div data-role="header" data-position="fixed">
+				<h1>Page: 404!</h1>
+				
+			<!-- header-->
+			
+			</div>
+			<div data-role="content">
+			
+			<h1>404: Page not Found!</h1>
+			
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+			
+			<!-- footer -->
+			
+				<div data-role="navbar">
+						<ul>
+							<li><a href="#home">Home</a></li>
+							<li><a href="#supportTicket">Add Ticket</a></li>
+							<li><a href="#info">Info</a></li>
+						</ul>	
+				</div>
+			</div>
+		</div><!-- pageEnd -->
 	
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript"
 </body>
 
 
