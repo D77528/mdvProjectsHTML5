@@ -150,16 +150,18 @@
 					<legend>Support Description</legend>
 						<ul>
 							<li id="select">
-								<label for="supportType" class="select">Support Type</label>
-								<select id="supportType" data-native-menu="false" name="supportType" data-mini="true" >
-									<option data-placeholder="true">Choose Support Type</option>
-									<option value="Call">Call</option>
-									<option value="Email">Email</option>
-									<option value="Online_Chat">Online_Chat</option>
-									<option value="Support_Form">Support_Form</option>
-									<option value="Sales_Inquiry">Sales_Inquiry</option>
-								</select>	
+								<div data-role="fieldcontain">
+										<label for="select-choice-1" class="select">Support Type</label>
+										<select id="select-choice-1" data-native-menu="false" name="select-choice-1" data-mini="true" >
+											<option value="Call">Call</option>
+											<option value="Email">Email</option>
+											<option value="Online_Chat">Online_Chat</option>
+											<option value="Support_Form">Support_Form</option>
+											<option value="Sales_Inquiry">Sales_Inquiry</option>
+										</select>	
+								</div>
 							</li>
+
 								<fieldset data-role="controlgroup">
 									<li><input type="checkbox" value="Waiting for Response?" name="awaitingResponse" id="awaitingResponse" data-mini="true" />
 										<label for="awaitingResponse">Waiting for Response?</label>
@@ -205,6 +207,7 @@
 		<!-- header-->
 		</div>
 		<div data-role="content" id="contentSearchResults">
+		
 		<!-- content-->	
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -236,10 +239,10 @@
 				</div>
 				<div data-role="collapsible" data-collapsed="true">
 					<h3 class="ui-collapsible-heading">Gold and Bronze Links</h3>
-					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week3/GOLD/index.html">
+					<a href="../GOLD/index.html">
 						<p>Gold App</p>
 					</a>
-					<a href="http://d77528.github.com/mdvProjectsHTML5/miu/week3/BRONZE/index.html">
+					<a href="../BRONZE/index.html">
 						<p>Bronze App</p>
 					</a>
 				</div>
@@ -357,7 +360,7 @@ For the past 10 or so years I have worked at my father-in-laws company, Compix M
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/json.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/sample-main.js"></script>
 </body>
 
 

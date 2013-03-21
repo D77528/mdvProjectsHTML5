@@ -1,6 +1,6 @@
 //Reyes, Timothy
 //MIU 1303
-//Project Week 2
+//Project Week 3
 
 
 window.addEventListener("DOMContentLoaded", function(){
