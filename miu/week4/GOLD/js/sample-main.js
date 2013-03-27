@@ -3,7 +3,7 @@ $(document).on('pageinit', function(){
 
 //Reyes, Timothy
 //MIU 1303
-//Project Week 3
+//Project Week 4
 
 		
 	$('#home').on('pageinit', function(){
@@ -105,7 +105,6 @@ $(document).on('pageinit', function(){
 		}else{
 			localStorage.clear();
 			alert("All Support Tickets deleted");
-			window.location.reload();
 		}
 	
 	};
@@ -148,7 +147,7 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -157,7 +156,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.response[1] === "Yes"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -172,7 +171,7 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -181,7 +180,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.supportType[1] === "Call"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -205,7 +204,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.supportType[1] === "Email"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -230,7 +229,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.supportType[1] === "Online_Chat"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -255,7 +254,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.supportType[1] === "Support_Form"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -280,7 +279,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.supportType[1] === "Sales_Inquiry"){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
 					jqueryPage.append(HTMLDiv);	
@@ -305,7 +304,7 @@ $(document).on('pageinit', function(){
 			for(n in obj){
 				if(obj.date[1] != ""){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");
+					var createPInner = $("<p>").attr("id", "pCollapsed");
 					createH3.html(obj.date[1] + ": " + obj.firstn[1] + " " + obj.lastn[1])					
 					createPInner.html(obj[n][0] + " " + obj[n][1])
 					HTMLDiv.append(createPInner);				
@@ -336,11 +335,11 @@ $(document).on('pageinit', function(){
 			for(n in obj){				
 				if(term === obj[n][1]){
 					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>");	
+					var createPInner = $("<p>").attr("id", "pCollapsed");	
 					jqueryPage.append(HTMLDiv);	
 					
 					for (q in obj){
-						var createPInner = $("<p>");
+						var createPInner = $("<p>").attr("id", "pCollapsed");
 						createPInner.html(obj[q][0] + " " + obj[q][1])
 						HTMLDiv.append(createPInner);
 						createH3.html(obj.firstn[1] + " " + obj.lastn[1])

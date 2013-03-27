@@ -148,7 +148,9 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")
+									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -172,7 +174,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -196,7 +199,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -221,7 +225,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -246,7 +251,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -271,7 +277,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -296,7 +303,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
@@ -327,7 +335,8 @@ $(document).on('pageinit', function(){
 			var obj = jsonObjects[key];
 			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
 									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
+									.attr("id", "dataItems")
+									.attr("data-theme", "a")									
 			var createH3 = $("<h3>");
 			var createP = $("<p>");
 			createH3.html(obj.firstn[1] + " " + obj.lastn[1])

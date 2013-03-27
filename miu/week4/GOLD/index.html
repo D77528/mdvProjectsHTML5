@@ -24,18 +24,17 @@
 
 	<div data-role="page" id="home" data-add-back-btn="true"><!-- pageStart-->
 		<div data-role="header" data-position="fixed"><!-- header-->
-			<h1>Ticket System</h1>
 			<img src="img/banner.png" class="banner" />
+			<h1>Ticket System</h1>
+			<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+				<img src="img/compix.png"  />
+			</a>	
+			
 		</div>
 
 		<div data-role="content">
-			<table class="topRow">
+		<table class="topRow">
 				<tr>
-					<td>
-						<a href="http://www.compix.tv" target="_blank">
-							<img src="img/compix.png" data-inline="true" />
-						</a>
-					</td>
 					<td>
 						<input type="search" name="search" data-inline="true" id="searchField" value="" data-filter="true" data-mini="true">
 					</td>
@@ -48,11 +47,11 @@
 			</table>
 			<p>
 				<a href="#supportTicket">
-					<img src="img/feature_bg.jpg" id="features" />
+					<img src="img/feature_bg.png" id="features" />
 				</a>
 			</p>
 			<div>
-				<ul data-role="listview" data-insert="true" data-divider-theme="d">
+				<ul data-role="listview" data-insert="true" data-divider-theme="b">
 					<li data-role="list-divider">Urgent Customers:</li>
 					<li>
 						<a href="#searchResults" id="browseResponse" >
@@ -108,7 +107,11 @@
 	
 	<div data-role="page" id="supportTicket" data-add-back-btn="true"><!-- pageStart-->
 		<div data-role="header" data-position="fixed"><!-- header-->
+			<img src="img/banner.png" class="banner" />
 			<h1>Technical Support Tickets</h1>
+			<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+				<img src="img/compix.png"  />
+			</a>	
 			<img src="img/banner.png" class="banner" />
 		</div>
 		<div data-role="content">
@@ -203,12 +206,17 @@
 	
 	<div data-role="page" id="searchResults" data-add-back-btn="true"><!-- pageStart -->
 		<div data-role="header" data-position="fixed">
-			<h1>Search Results</h1>	
+			<img src="img/banner.png" class="banner" />
+			<h1>Search Results</h1>
+			<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+				<img src="img/compix.png"  />
+			</a>		
 		<!-- header-->
 		</div>
-		<div data-role="content" id="contentSearchResults">
-		
+		<div data-role="content">
+			<div  data-role="collapsible-set" id="contentSearchResults">
 		<!-- content-->	
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		<!-- footer -->
@@ -226,8 +234,11 @@
 	
 	<div data-role="page" id="info" data-add-back-btn="true"><!-- pageStart -->
 		<div data-role="header" data-position="fixed">
+			<img src="img/banner.png" class="banner" />
 			<h1>Information</h1>
-
+			<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+				<img src="img/compix.png"  />
+			</a>	
 		</div>
 		<div data-role="content" class="ui-content" role="main">
 			<div data-role="collapsible-set">
@@ -259,6 +270,12 @@
 					</a>	
 				</div>			
 			</div>	
+			<br />
+			<div align="center">
+				<a href="http://www.compix.tv" target="_blank">
+					<img src="img/compix_b_full.png" />
+				</a>
+			</div>
 		</div>	
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -275,7 +292,11 @@
 	
 	<div data-role="page" id="aboutTimothy" data-add-back-btn="true"><!-- pageStart -->
 		<div data-role="header" data-position="fixed">
+		<img src="img/banner.png" class="banner" />
 		<h1>About Timothy Reyes</h1>
+		<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+			<img src="img/compix.png"  />
+		</a>	
 	<!-- header-->
 		</div>
 		<div data-role="content">
@@ -304,10 +325,12 @@ For the past 10 or so years I have worked at my father-in-laws company, Compix M
 	
 		<div data-role="dialog" id="recordErrorsPage"><!-- pageStart -->
 			<div data-role="header" data-position="fixed">
+				<img src="img/banner.png" class="banner" />
 				<h1>Missing Required</h1>
-				
+				<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+					<img src="img/compix.png"  />
+				</a>	
 			<!-- header-->
-			
 			</div>
 			<div data-role="content">
 			<!-- content-->
@@ -331,8 +354,11 @@ For the past 10 or so years I have worked at my father-in-laws company, Compix M
 		
 			<div data-role="page" id="oops404" data-add-back-btn="true"><!-- pageStart -->
 			<div data-role="header" data-position="fixed">
+				<img src="img/banner.png" class="banner" />
 				<h1>Page: 404!</h1>
-				
+				<a href="http://www.compix.tv" data-role="none" target="_blank" class="ui-btn-right" id="headerLogo">
+					<img src="img/compix.png"  />
+				</a>
 			<!-- header-->
 			
 			</div>
