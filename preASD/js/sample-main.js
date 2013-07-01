@@ -31,13 +31,13 @@
 			
 				var data = onlyForm.serializeArray();
 				storeData(data);	
-				console.log(data)
 			}
 			
 		});			
 	});	
 
 	$('#searchResults').on('pageinit', function(){
+
 	});		
 	
 
@@ -51,30 +51,30 @@
 		 
 	};
 // Links for Edit & Delete Ticket	
-	function makeItemLinks(key, createPInner){			
+	function makeItemLinks(key, createPLast){	
+	console.log(key)		
 		var breakTag = $("<br />");	
 		var createEditLink = $("<a>").attr("href", "#supportTicket")
 									 .attr("id", key)
-		console.log(createEditLink)
 		createEditLink.on("click", editTicket);	 
 		createEditLink.html("<br />" + "Edit Ticket")
-		createPInner.append(createEditLink);	
-		createPInner.append(breakTag);		
+		createPLast.append(createEditLink);	
+		createPLast.append(breakTag);		
 		
 		var createDeleteLink = $("<a>").attr("href", "#")
 		createDeleteLink.on("click", deleteTicket);	 
 		createDeleteLink.html("Delete Text");
-		createPInner.append(createDeleteLink);
+		createPLast.append(createDeleteLink);
 	};
 	
 //Edit Link Displays
 	function editTicket(){
-		var value = localStorage.getItem($(this).attr("id"));		
+		var value = localStorage.getItem($(this).attr("id"));
 console.log(value)
 		var item = JSON.parse(value);
-console.log(item)
-		$("#firstn").val(item.firstn[1]);
-		
+		console.log(item);
+
+		$("#firstn").val(item.firstn[1]);		
 		$("#lastn").val(item.lastn[1]);
 		$("#email").val(item.email[1]);
 		$("#phone").val(item.phone[1]);
@@ -82,29 +82,29 @@ console.log(item)
 		
 		var radios = $("[name='contactType']")
 		for(var i=0; i<radios.length; i++){
-		console.log(radios[0])
 			if(radios[i].value == "End User" && item.contactType[1] == "End User"){
-				$("#endUser").attr("checked", "true").checkboxradio("refresh")
+				$("#endUser").attr("checked", "true")
 			
 			}else if(radios[i].value == "Dealer" && item.contactType[1] == "Dealer"){
-				$("#dealer").attr("checked", "true").checkboxradio("refresh")
+				$("#dealer").attr("checked", "true")
 			}
 		};
 		
-		$("#contactFeelings").val(item.contactFeelings[1]).checkboxradio("refresh");
+		$("#contactFeelings").val(item.contactFeelings[1])
 		$("#supportType").val(item.supportType[1]);
 
 		if(item.response[1] == "Yes"){
-			$("#awaitingResponse").attr("checked", true).checkboxradio("refresh")
+			$("#awaitingResponse").attr("checked", true)
 		};
 		
 		$("#comments").val(item.comments[1]);		
-		$("#submit").val("Edit Ticket");
-		
 		var editButton = $("#submit");
+		$("#submit").val("DONE EDITING");
 		editButton.key = $(this).attr("id");	
+		$("#submit").button('refresh');
 		
 		editButton.on("click", storeData(value));
+	
 	};
 	
 //Delete Link Displays
@@ -120,51 +120,43 @@ console.log(item)
 		}
 	};
 
-//Checkbox for Waiting for Response
-	function getCheckValue(){
-		if($("#awaitingResponse").checked){
-			responseBox = $("#awaitingResponse").value;
-		}else{
-			responseBox = "No response needed."
-		}
-		
-	};
+
 //Display Link is pressed				
 	var displayD = function(){
-
+//		$("#itemList").empty();
 		if(localStorage.length === 0){
 			alert("No Support Tickets Entered; will auto-populate Ticket entry");
 			autoFillTicket();
-			console.log("length 0")
 		}
-		$("dataItems").empty();
+		
 		for (i=0, j=localStorage.length; i<j; i++){
 		    var key = localStorage.key(i);
             var item = JSON.parse(localStorage.getItem(key));
-			var makeSubList = $("<li></li>").attr("data-role", "list-divider")
-											//.attr("data-collapsed", "false");
-		console.log(item.firstn[1]);
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
 
 			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
-			var makeLink = $("<a href='#' id='"+key+"'>Edit</a>");
-			makeLink.on("click", function(){
+/*			
+					makeLink.on("click", function(){
 				console.log("This is my key: "+this.id);
-				makeSubList.append(createPInner);	
 				
 				
-			});
-			makeLink.html(makeSubLi);						
+				
+			});		
+*/
+			makeSubList.append(makeSubLi);				
 			for(n in item){
-				var jqueryPage = $("#contentSearchResults")
 				var createPInner = $("<p>");
-				
+				var createPLast = $("<p>");
 				createPInner.html(item[n][0] + " " + item[n][1])	
-				makeSubList.append(makeLink).appendTo("#itemList");
+				makeSubList.append(createPInner).appendTo("#itemList");
+				
 						
 			}
-			makeItemLinks(item[n], createPInner);	
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);	
 		};
 	};
+	
 //Clear Local is pressed						
 	var clearLocal = function(){
 		if(localStorage.length === 0){
@@ -200,7 +192,15 @@ console.log(item)
 		console.log(localStorage)
 	};
 	
-
+//Checkbox for Waiting for Response
+	function getCheckValue(){
+		if($("#awaitingResponse").checked){
+			responseBox = $("#awaitingResponse").value;
+		}else{
+			responseBox = "No response needed."
+		}
+		
+	};
 	
 //FILTER CALLS	
 	var browseResponse = $("#browseResponse");
