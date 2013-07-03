@@ -25,162 +25,149 @@ var responseBox = "No";
 	var browseDate = $("#browseDate");
 	browseDate.on("click", displayDate);
 	
+	
+	
 //FILTERS
 //Display Response	
-	function displayResponse() {	
+	function displayResponse() {
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems")
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.response[1] === "Yes"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.response[1] === "Yes"){			
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
 				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);		
+				
 			}	
-			makeItemLinks(localStorage.key(n), createPInner);		
 		}
 	}
 //Display Calls	
 	function displayCalls() {	
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems")
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.supportType[1] === "Call"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
-				}	
-			}
-			makeItemLinks(localStorage.key(n), createPInner);	
-		}
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.supportType[1] === "Call"){			
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
+				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);		
+				
+			}	
+		}			
 	}
 //Display Emails	
 	function displayEmails() {	
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.supportType[1] === "Email"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
-				}	
-			}
-			makeItemLinks(localStorage.key(n), createPInner);		
-		}
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.supportType[1] === "Email"){			
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
+				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);						
+			}	
+		}			
 	}
 //Display OnlineChat	
 	function displayOnlineChats() {	
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.supportType[1] === "Online_Chat"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
-				}	
-			}
-			makeItemLinks(localStorage.key(n), createPInner);		
-		}
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.supportType[1] === "Online_Chat"){			
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
+				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);						
+			}	
+		}			
 	}
 //Display Support Form	
 	function displaySupportForm() {	
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.supportType[1] === "Support_Form"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
-				}	
-			}
-			makeItemLinks(localStorage.key(n), createPInner);		
-		}
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.supportType[1] === "Support_Form"){			
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
+				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);						
+			}	
+		}			
 	}	
+	
 //Display Sales Inquiry	
 	function displaySalesInquiry() {	
+		$("#itemList").empty();
 		for (i=0, j=localStorage.length; i<j; i++){
-			var key = localStorage.key(i);		
-			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
-			var HTMLDiv = $("<div>").attr("data-role", "collapsible")
-									.attr("data-collapsed", "true")
-									.attr("id", "dataItems");
-			var createH3 = $("<h3>");
-			var createP = $("<p>");
-			createH3.html(obj.firstn[1] + " " + obj.lastn[1])
-			HTMLDiv.append(createH3);
-			
-			for(n in obj){
-				if(obj.supportType[1] === "Sales_Inquiry"){
-					var jqueryPage = $("#contentSearchResults")
-					var createPInner = $("<p>").attr("id", "pCollapsed");
-					createPInner.html(obj[n][0] + " " + obj[n][1])
-					HTMLDiv.append(createPInner);				
-					jqueryPage.append(HTMLDiv);	
-				}	
-			}
-			makeItemLinks(localStorage.key(n), createPInner);		
-		}
+		    var key = localStorage.key(i);
+            var item = JSON.parse(localStorage.getItem(key));
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+
+			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
+
+			makeSubList.append(makeSubLi);	
+			if(item.supportType[1] === "Sales_Inquiry"){		
+				for(n in item){
+					var createPInner = $("<p>");
+					var createPLast = $("<p>");
+					createPInner.html(item[n][0] + " " + item[n][1])	
+					makeSubList.append(createPInner).appendTo("#itemList");	
+				}
+			makeSubList.append(createPLast);
+			makeItemLinks(key, createPLast);						
+			}	
+		}			
 	}
 	
 //Info Section	
@@ -270,6 +257,7 @@ var responseBox = "No";
 //Display Link is pressed				
 	var displayD = function(){
 		$("#itemList").empty();
+		
 		if(localStorage.length === 0){
 			alert("No Support Tickets Entered; will auto-populate Ticket entry");
 			autoFillTicket();
@@ -278,15 +266,13 @@ var responseBox = "No";
 		for (i=0, j=localStorage.length; i<j; i++){
 		    var key = localStorage.key(i);
             var item = JSON.parse(localStorage.getItem(key));
-			var makeSubList = $("<div></div>").attr("data-role", "collapsible")											
+			var makeSubList = $("<div></div>").attr("data-role", "collapsible")
+											  .attr("id", "collapsibles");											
 
 			var makeSubLi = $("<h3>"+ item.firstn[1] + " " + item.lastn[1] + "</h3>");
 /*			
 					makeLink.on("click", function(){
-				console.log("This is my key: "+this.id);
-				
-				
-				
+				console.log("This is my key: "+this.id);	
 			});		
 */
 			makeSubList.append(makeSubLi);				
@@ -306,7 +292,8 @@ var responseBox = "No";
 //Edit Link Displays
 	function editTicket(){
 		var value = localStorage.getItem($(this).attr("id"));
-console.log(value)
+console.log(value) //object of all ticket data
+console.log($(this).attr("id")) //id only
 		var item = JSON.parse(value);
 		console.log(item);
 
@@ -332,6 +319,8 @@ console.log(value)
 		if(item.response[1] == "Yes"){
 			$("#awaitingResponse").attr("checked", true)
 		};
+		
+		localStorage.removeItem($(this).attr("id"));  //Deletes this Ticket you've edited, and is ready to re-save as new ID & ticket
 		
 		$("#comments").val(item.comments[1]);		
 		var editButton = $("#submit");
@@ -362,9 +351,10 @@ console.log(value)
 	
 //storeData Submit Button is pressed	
 	var storeData = function(data){
-		console.log(data)
-		var setObjects = data
-		var id	= Math.floor(Math.random()*293842);
+		console.log(data);
+
+			var id	= Math.floor(Math.random()*293842);
+			var setObjects = data
 		getCheckValue(); //CheckValue has results for responseBox
 		
 		var dataItems = {
@@ -378,10 +368,9 @@ console.log(value)
 			supportType : ["Support Type: ", setObjects[7].value],
 			comments : ["Support Overview: ", setObjects[8].value],	
 			response : ["Waiting for Response: ", responseBox]
-		}		
+			}
 		alert ("Ticket has been submitted");
 		localStorage.setItem(id, JSON.stringify(dataItems));
-		console.log(localStorage)
 		displayD();
 	
 	};	
@@ -395,8 +384,8 @@ console.log(value)
 		}
 		
 	};
-	
-	
+
+
 	
 $('#home').on('pageinit', function(){
 
@@ -430,6 +419,8 @@ $('#supportTicket').on('pageinit', function(){
 		}
 		
 	});	//Validation End
+
+
 		
 //Auto Fill Ticket Link
 	var autoFillTicket = function (){
@@ -438,8 +429,6 @@ $('#supportTicket').on('pageinit', function(){
 			localStorage.setItem(id, JSON.stringify(jsonObjects[n]));
 		}		 
 	};		
-
-		
 
 	
 //Clear Local is pressed						
@@ -453,8 +442,6 @@ $('#supportTicket').on('pageinit', function(){
 		}
 	
 	};	
-
-
 	
 //Form Links
 	var displayData = $("#displayData");
@@ -467,7 +454,6 @@ $('#supportTicket').on('pageinit', function(){
 
 $('#searchResults').on('pageinit', function(){
 
-		
 });	//searchResults END
 
 
